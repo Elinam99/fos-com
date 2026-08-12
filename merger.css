@@ -302,6 +302,86 @@ body.dark-mode .theme_icon--light {
 	overflow-x: auto;
 }
 
+/* ── Categories popup ── */
+.categories_popup:not(.active) .categories_overlay,
+.categories_popup:not(.active) .categories_panel {
+	display: none;
+}
+
+.categories_popup.active .categories_overlay {
+	display: block;
+}
+
+.categories_popup.active .categories_panel {
+	display: flex;
+}
+
+body.categories-open {
+	overflow: hidden;
+}
+
+.categories_overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.45);
+	z-index: 199;
+}
+
+.categories_panel.nav-links {
+	position: fixed;
+	z-index: 200;
+	flex-direction: column;
+	align-items: flex-start;
+	background: var(--header-bg);
+	box-shadow: var(--shadow);
+	gap: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.categories_panel.nav-links a {
+	width: 100%;
+	padding: 1.2rem 2rem;
+	border-bottom: 1px solid var(--border);
+	white-space: normal;
+}
+
+.categories_panel.nav-links a:last-child {
+	border-bottom: none;
+}
+
+@media (min-width: 769px) {
+	.categories_panel.nav-links {
+		top: 11rem;
+		left: 3%;
+		width: 28rem;
+		max-width: calc(100vw - 6%);
+		max-height: calc(100vh - 13rem);
+		border-radius: 1.2rem;
+		border: 1px solid var(--border);
+		padding: 0.4rem 0;
+	}
+}
+
+@media (max-width: 768px) {
+	.categories_panel.nav-links {
+		top: 0;
+		left: 0;
+		width: 28rem;
+		max-width: 85vw;
+		height: 100vh;
+		padding: 8rem 2rem 2rem;
+		border-radius: 0;
+		transform: translateX(-100%);
+		transition: transform 0.3s ease;
+	}
+
+	.categories_popup.active .categories_panel.nav-links {
+		display: flex;
+		transform: translateX(0);
+	}
+}
+
 .nav-links a {
 	font-size: 1.4rem;
 	font-weight: 500;
@@ -1391,19 +1471,6 @@ body.dark-mode .wardrobe-price {
 	display: block;
 }
 
-/* ── Mobile nav drawer ── */
-.categories_overlay {
-	display: none;
-	position: fixed;
-	inset: 0;
-	background: rgba(0, 0, 0, 0.45);
-	z-index: 199;
-}
-
-.navbar.active {
-	display: flex;
-}
-
 /* ── Responsive ── */
 @media (max-width: 1024px) {
 	.hero-banner {
@@ -1471,37 +1538,6 @@ body.dark-mode .wardrobe-price {
 
 	.header-nav {
 		padding: 0.8rem 4%;
-		overflow-x: auto;
-	}
-
-	.nav-links {
-		position: fixed;
-		top: 0;
-		left: -100%;
-		width: 28rem;
-		height: 100vh;
-		background: var(--header-bg);
-		flex-direction: column;
-		align-items: flex-start;
-		padding: 8rem 2rem 2rem;
-		gap: 0;
-		box-shadow: var(--shadow);
-		transition: left 0.3s;
-		z-index: 200;
-	}
-
-	.nav-links.active {
-		left: 0;
-	}
-
-	.categories_overlay.active {
-		display: block;
-	}
-
-	.nav-links a {
-		width: 100%;
-		padding: 1.4rem 0;
-		border-bottom: 1px solid var(--border);
 	}
 
 	.hero-content h1 {

@@ -57,22 +57,24 @@
 		</div>
 
 		<nav class="header-nav">
-			<button type="button" class="categories-btn" id="menu_bar">
+			<button type="button" class="categories-btn" id="menu_bar" aria-expanded="false" aria-controls="navbar">
 				<i class="fa-solid fa-bars"></i>
 				<span>All Categories</span>
 			</button>
-			<div class="nav-links navbar" id="navbar">
-				<a href="#" class="nav-deals">SuperDeals</a>
-				<a href="#">Choice</a>
-				<a href="#">Women</a>
-				<a href="#">Men</a>
-				<a href="#">Gallery</a>
-				<a href="#" class="nav-more">More <i class="fa-solid fa-chevron-down"></i></a>
-			</div>
 		</nav>
 	</header>
 
-	<div class="categories_overlay" id="categories_overlay" aria-hidden="true"></div>
+	<div class="categories_popup" id="categories_popup">
+		<div class="categories_overlay" id="categories_overlay" aria-hidden="true"></div>
+		<nav class="categories_panel nav-links navbar" id="navbar">
+			<a href="#" class="nav-deals">SuperDeals</a>
+			<a href="#">Choice</a>
+			<a href="#">Women</a>
+			<a href="#">Men</a>
+			<a href="#">Gallery</a>
+			<a href="#" class="nav-more">More <i class="fa-solid fa-chevron-down"></i></a>
+		</nav>
+	</div>
 
 	<main class="page-main">
 		<section class="hero-banner">
