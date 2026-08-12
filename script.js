@@ -11,6 +11,7 @@ const cartSubtotal = document.querySelector('#cart_subtotal');
 const cartTotalEl = document.querySelector('#cart_total');
 const menuBar = document.querySelector('#menu_bar');
 const navbar = document.querySelector('#navbar');
+const categoriesOverlay = document.querySelector('#categories_overlay');
 const themeToggle = document.querySelector('#theme_toggle');
 const headerSearchForm = document.querySelector('#header_search_form');
 const headerSearchInput = document.querySelector('#header_search_input');
@@ -457,10 +458,54 @@ document.addEventListener('keydown', (e) => {
 	else if (registerPopup.classList.contains('active')) closeRegister();
 	else if (searchPopup.classList.contains('active')) closeSearchPopup();
 	else if (cartPopup.classList.contains('active')) closeCart();
+	else if (navbar.classList.contains('active')) closeCategories();
 });
 
-menuBar.addEventListener('click', () => {
-	navbar.classList.toggle('active');
+function isMobileNav() {
+	return window.matchMedia('(max-width: 768px)').matches;
+}
+
+function closeCategories() {
+	navbar.classList.remove('active');
+	if (categoriesOverlay) {
+		categoriesOverlay.classList.remove('active');
+		categoriesOverlay.setAttribute('aria-hidden', 'true');
+	}
+}
+
+function openCategories() {
+	if (!isMobileNav()) return;
+
+	navbar.classList.add('active');
+	if (categoriesOverlay) {
+		categoriesOverlay.classList.add('active');
+		categoriesOverlay.setAttribute('aria-hidden', 'false');
+	}
+}
+
+menuBar.addEventListener('click', (e) => {
+	e.stopPropagation();
+	if (!isMobileNav()) return;
+
+	if (navbar.classList.contains('active')) {
+		closeCategories();
+	} else {
+		openCategories();
+	}
+});
+
+if (categoriesOverlay) {
+	categoriesOverlay.addEventListener('click', closeCategories);
+}
+
+document.addEventListener('click', (e) => {
+	if (!navbar.classList.contains('active')) return;
+	if (menuBar.contains(e.target) || navbar.contains(e.target)) return;
+	closeCategories();
+});
+
+navbar.querySelectorAll('a').forEach((link) => {
+	link.addEventListener('click', closeCategories);
 });
 
 headerSearchForm.addEventListener('submit', (e) => {
