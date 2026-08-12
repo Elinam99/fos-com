@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Geoffrey — Portfolio | Fos.com</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="portfolio.css">
+	<script src="https://kit.fontawesome.com/b5b26585e9.js" crossorigin="anonymous"></script>
+</head>
+<body class="portfolio-page">
+	<div class="portfolio-glow portfolio-glow--accent" aria-hidden="true"></div>
+	<div class="portfolio-glow portfolio-glow--hero" aria-hidden="true"></div>
+	<div class="portfolio-glow portfolio-glow--muted" aria-hidden="true"></div>
+
+	<header class="portfolio-header">
+		<a href="Fos.com.gh.html" class="portfolio-logo">
+			<img src="My project.png" alt="Fos.com">
+		</a>
+		<nav class="portfolio-nav">
+			<a href="home.html">Services</a>
+			<a href="Portfolio.html" class="active">Portfolio</a>
+			<a href="About.html">About</a>
+			<a href="Contact.html">Contact Me</a>
+		</nav>
+		<div class="portfolio-header-actions">
+			<button type="button" class="portfolio-theme-btn" id="theme_toggle" aria-label="Toggle dark mode">
+				<i class="fa-solid fa-moon theme_icon theme_icon--dark"></i>
+				<i class="fa-solid fa-sun theme_icon theme_icon--light"></i>
+			</button>
+			<a href="founders/Resume.pdf" class="portfolio-cv-btn" download="Geoffrey-Resume.pdf">
+				Download Resume
+				<i class="fa-solid fa-download"></i>
+			</a>
+		</div>
+	</header>
+
+	<main class="portfolio-hero">
+		<div class="portfolio-social">
+			<a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+			<a href="#" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+			<a href="home.html" aria-label="Fos.com store"><i class="fa-solid fa-globe"></i></a>
+		</div>
+
+		<div class="portfolio-visual">
+			<div class="portfolio-arch-frame">
+				<div class="portfolio-slider" id="portfolio_slider">
+					<div class="portfolio-slide">
+						<img
+							src="founders/Founder Geoffrey.JPG"
+							alt="Founder Geoffrey"
+							width="680"
+							height="760"
+							loading="eager"
+							decoding="async">
+					</div>
+					<div class="portfolio-slide">
+						<img
+							src="founders/Founder Geoffrey 2.jpg"
+							alt="Founder Geoffrey"
+							width="680"
+							height="760"
+							loading="lazy"
+							decoding="async">
+					</div>
+				</div>
+				<button type="button" class="portfolio-slider-btn portfolio-slider-btn--prev" id="slider_prev" aria-label="Previous photo">
+					<i class="fa-solid fa-chevron-left"></i>
+				</button>
+				<button type="button" class="portfolio-slider-btn portfolio-slider-btn--next" id="slider_next" aria-label="Next photo">
+					<i class="fa-solid fa-chevron-right"></i>
+				</button>
+			</div>
+			<div class="portfolio-slider-dots" id="slider_dots">
+				<button type="button" class="portfolio-slider-dot active" data-index="0" aria-label="Show photo 1"></button>
+				<button type="button" class="portfolio-slider-dot" data-index="1" aria-label="Show photo 2"></button>
+			</div>
+			<svg class="portfolio-wave" viewBox="0 0 420 120" aria-hidden="true">
+				<path d="M10 80 C 80 20, 140 100, 210 50 S 340 30, 410 70" fill="none" stroke-width="3"/>
+			</svg>
+		</div>
+
+		<div class="portfolio-intro">
+			<h1>Geoffrey</h1>
+			<p>Co-Founder // Fos.com Designer</p>
+		</div>
+	</main>
+
+	<section class="portfolio-about">
+		<div class="portfolio-about-card">
+			<h2>About Geoffrey</h2>
+			<p>
+				Geoffrey helps shape Fos.com — Ghana's fashion marketplace — with a focus on clean design,
+				user experience, and building a platform that connects buyers and sellers with confidence.
+			</p>
+		</div>
+		<div class="portfolio-skills">
+			<span class="skill-tag skill-tag--accent">UI Design</span>
+			<span class="skill-tag skill-tag--hero">Branding</span>
+			<span class="skill-tag skill-tag--muted">E-Commerce</span>
+			<span class="skill-tag skill-tag--dark">Product Strategy</span>
+		</div>
+	</section>
+
+	<section class="portfolio-work">
+		<h2>Selected work</h2>
+		<div class="portfolio-work-grid">
+			<article class="work-card">
+				<img src="daniel-storek-JM-qKEd1GMI-unsplash.jpg" alt="Fos landing page">
+				<h3>Landing page</h3>
+				<p>Welcome experience &amp; brand identity</p>
+			</article>
+			<article class="work-card work-card--hero">
+				<img src="dom-hill-nimElTcTNyY-unsplash.jpg" alt="Summer collection">
+				<h3>Summer collection</h3>
+				<p>Hero campaign &amp; seasonal styling</p>
+			</article>
+			<article class="work-card">
+				<img src="multicolor-sneakers.jpg" alt="Wardrobe section">
+				<h3>Wardrobe shop</h3>
+				<p>Product gallery &amp; cart experience</p>
+			</article>
+		</div>
+	</section>
+
+	<footer class="portfolio-footer">
+		<p>Built with Fos.com</p>
+		<div class="portfolio-footer-links">
+			<a href="Fos.com.gh.html">Landing</a>
+			<a href="home.html">Store</a>
+			<a href="founder.html">Founders</a>
+		</div>
+	</footer>
+
+	<script>
+		const themeToggle = document.getElementById('theme_toggle');
+		const themeIconDark = document.querySelector('.theme_icon--dark');
+		const themeIconLight = document.querySelector('.theme_icon--light');
+
+		if (themeIconLight) themeIconLight.style.display = 'none';
+
+		function setTheme(isDark) {
+			document.body.classList.toggle('dark-mode', isDark);
+			if (themeIconDark) themeIconDark.style.display = isDark ? 'none' : 'inline';
+			if (themeIconLight) themeIconLight.style.display = isDark ? 'inline' : 'none';
+			localStorage.setItem('fos-theme', isDark ? 'dark' : 'light');
+		}
+
+		if (themeToggle) {
+			themeToggle.addEventListener('click', () => {
+				setTheme(!document.body.classList.contains('dark-mode'));
+			});
+		}
+
+		if (localStorage.getItem('fos-theme') === 'dark') {
+			setTheme(true);
+		}
+
+		const portfolioSlider = document.getElementById('portfolio_slider');
+		const sliderDots = document.querySelectorAll('.portfolio-slider-dot');
+		const sliderPrev = document.getElementById('slider_prev');
+		const sliderNext = document.getElementById('slider_next');
+
+		if (portfolioSlider && sliderDots.length) {
+			let currentSlide = 0;
+			const slideCount = sliderDots.length;
+			let slideTimer;
+
+			function goToSlide(index) {
+				currentSlide = (index + slideCount) % slideCount;
+				portfolioSlider.style.transform = 'translateX(-' + (currentSlide * 50) + '%)';
+				sliderDots.forEach((dot, i) => {
+					dot.classList.toggle('active', i === currentSlide);
+				});
+			}
+
+			function startAutoSlide() {
+				clearInterval(slideTimer);
+				slideTimer = setInterval(() => goToSlide(currentSlide + 1), 5000);
+			}
+
+			sliderDots.forEach((dot) => {
+				dot.addEventListener('click', () => {
+					goToSlide(Number(dot.dataset.index));
+					startAutoSlide();
+				});
+			});
+
+			if (sliderPrev) {
+				sliderPrev.addEventListener('click', () => {
+					goToSlide(currentSlide - 1);
+					startAutoSlide();
+				});
+			}
+
+			if (sliderNext) {
+				sliderNext.addEventListener('click', () => {
+					goToSlide(currentSlide + 1);
+					startAutoSlide();
+				});
+			}
+
+			startAutoSlide();
+		}
+	</script>
+</body>
+</html>

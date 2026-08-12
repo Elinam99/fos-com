@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact - Fos.com</title>
+	<link rel="stylesheet" href="p.css">
+</head>
+<body class="founder-page">
+	<div class="founder-wrap">
+		<nav class="founder-nav">
+			<a href="Fos.com.gh.html" class="founder-back">&larr; Back to landing</a>
+			<a href="home.html" class="founder-home">Visit store</a>
+		</nav>
+
+		<header class="founder-header">
+			<div class="founder-intro">
+				<p class="founder-label">Get in touch</p>
+				<h1>Contact Us</h1>
+				<p class="founder-tagline">Have a question, partnership idea, or need help with an order? We'd love to hear from you.</p>
+			</div>
+		</header>
+
+		<section class="founder-section">
+			<h2>Send a message</h2>
+			<form class="contact-form" id="contact_form">
+				<div class="form_group">
+					<label for="contact_name">Full Name</label>
+					<input type="text" id="contact_name" name="name" placeholder="Your name" required>
+				</div>
+				<div class="form_group">
+					<label for="contact_email">Email</label>
+					<input type="email" id="contact_email" name="email" placeholder="you@example.com" required>
+				</div>
+				<div class="form_group">
+					<label for="contact_subject">Subject</label>
+					<input type="text" id="contact_subject" name="subject" placeholder="How can we help?" required>
+				</div>
+				<div class="form_group">
+					<label for="contact_message">Message</label>
+					<textarea id="contact_message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+				</div>
+				<button type="submit" class="founder-btn">Send Message</button>
+			</form>
+		</section>
+
+		<section class="founder-section founder-stats">
+			<div class="founder-stat">
+				<strong>Email</strong>
+				<span>support@fos.com</span>
+			</div>
+			<div class="founder-stat">
+				<strong>Phone</strong>
+				<span>+233 00 000 0000</span>
+			</div>
+			<div class="founder-stat">
+				<strong>Location</strong>
+				<span>Accra, Ghana</span>
+			</div>
+		</section>
+	</div>
+
+	<script>
+		document.getElementById('contact_form').addEventListener('submit', function (e) {
+			e.preventDefault();
+			this.reset();
+		});
+	</script>
+</body>
+</html>

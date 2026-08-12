@@ -1,0 +1,19 @@
+# IDE / editor
+.vs/
+.vscode/
+*.user
+*.suo
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Unrelated local files
+hello.c
+ti.py
+Coursera*.pdf
+alex.html
+von.html
+java.js
+data.js.erb

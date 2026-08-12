@@ -1,0 +1,371 @@
+/* the welcome page */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*{
+	margin: 0;
+	padding:0;
+	box-sizing: border-box;
+	transition: 0s;
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+img {
+	image-rendering: auto;
+	max-width: 100%;
+}
+
+
+
+.hero{
+	height: 100vh;
+	min-height: 100vh;
+	 width: 100%
+	background-color:black;
+	background-image: url("daniel-storek-JM-qKEd1GMI-unsplash.jpg ");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+nav{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0px 0px; 
+	text-decoration: none;
+
+
+
+}
+
+nav ul li{
+			display: inline-block;
+			list-style: none;
+			margin: 10px 30px;
+			text-decoration: none;
+			
+
+
+}
+nav ul li a{
+	color: black;
+	text-decoration: none;
+	
+
+}
+nav ul li a:hover{
+	transition: 0.1s;
+	background-color: black;
+	color:white;
+
+}
+
+.hero h1{
+	 font-size:40px;
+	  margin-top: 12%;
+	  
+	  
+}
+.hero button{
+	
+	background-color:white ;
+	color: green;
+	border: 2px solid black;
+	border-radius: 12px;
+	outline: none;
+	padding: 10px 20px;
+	color: black;
+	margin-top: 25px;
+	font-weight: bold;
+	letter-spacing: 1.2em;
+	cursor: pointer;
+	
+
+
+
+
+
+}
+
+.hero button{
+	transition: 0.1s;
+
+}
+.hero button:hover{
+background-color: black;
+border: 2px solid red;
+color: white;
+}
+
+
+.indicator span{
+	display: inline-block;
+	margin-top: 12px;
+	background-color: white;
+	height: 15px;
+	width: 15px;
+	border-radius:50%;
+
+	
+}
+
+.indicator span.span2{
+	background: black;
+}
+.indicator span.span3{
+	background: red;
+
+}
+
+/* founder page */
+body.founder-page {
+	background: #f5f5f5;
+	min-height: 100vh;
+}
+
+.founder-wrap {
+	max-width: 780px;
+	margin: 0 auto;
+	padding: 3rem 2rem 5rem;
+}
+
+.founder-nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 3rem;
+}
+
+.founder-back,
+.founder-home {
+	color: black;
+	text-decoration: none;
+	font-size: 1.4rem;
+	font-weight: 500;
+}
+
+.founder-back:hover,
+.founder-home:hover {
+	text-decoration: underline;
+}
+
+.founder-header {
+	display: flex;
+	gap: 2.4rem;
+	align-items: center;
+	background: white;
+	padding: 2.4rem;
+	border-radius: 1.6rem;
+	border: 2px solid black;
+	margin-bottom: 2rem;
+}
+
+.founder-avatar {
+	flex-shrink: 0;
+}
+
+.founder-avatar img {
+	width: 12rem;
+	height: 12rem;
+	max-width: 100%;
+	object-fit: cover;
+	object-position: center top;
+	border-radius: 50%;
+	border: 3px solid black;
+}
+
+.founder-label {
+	font-size: 1.3rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: #666;
+	margin-bottom: 0.4rem;
+}
+
+.founder-intro h1 {
+	font-size: 3.2rem;
+	margin-bottom: 0.8rem;
+}
+
+.founder-tagline {
+	font-size: 1.6rem;
+	line-height: 1.6;
+	color: #333;
+}
+
+.founder-section {
+	background: white;
+	padding: 2.4rem;
+	border-radius: 1.6rem;
+	border: 2px solid black;
+	margin-bottom: 2rem;
+}
+
+.founder-section h2 {
+	font-size: 2rem;
+	margin-bottom: 1.2rem;
+}
+
+.founder-section p {
+	font-size: 1.5rem;
+	line-height: 1.7;
+	color: #333;
+	margin-bottom: 1rem;
+}
+
+.founder-section p:last-child {
+	margin-bottom: 0;
+}
+
+.founder-stats {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.6rem;
+	text-align: center;
+}
+
+.founder-stat strong {
+	display: block;
+	font-size: 2rem;
+	margin-bottom: 0.4rem;
+}
+
+.founder-stat span {
+	font-size: 1.3rem;
+	color: #666;
+}
+
+.founder-actions {
+	display: flex;
+	gap: 1.2rem;
+	flex-wrap: wrap;
+	margin-top: 1.6rem;
+}
+
+.founder-btn {
+	display: inline-block;
+	padding: 1rem 2rem;
+	background: black;
+	color: white;
+	border-radius: 1rem;
+	font-size: 1.4rem;
+	font-weight: 600;
+	text-decoration: none;
+	border: 2px solid black;
+}
+
+.founder-btn:hover {
+	background: white;
+	color: black;
+}
+
+.founder-btn--outline {
+	background: white;
+	color: black;
+}
+
+.founder-btn--outline:hover {
+	background: black;
+	color: white;
+}
+
+.form_group {
+	margin-bottom: 1.4rem;
+}
+
+.form_group label {
+	display: block;
+	font-size: 1.4rem;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+	color: #333;
+}
+
+.form_group input,
+.form_group textarea {
+	width: 100%;
+	padding: 1rem 1.2rem;
+	border: 2px solid black;
+	border-radius: 0.8rem;
+	font-size: 1.4rem;
+	font-family: inherit;
+	background: #fff;
+}
+
+.form_group textarea {
+	resize: vertical;
+}
+
+.contact-form .founder-btn {
+	border: none;
+	cursor: pointer;
+	margin-top: 0.4rem;
+}
+
+.portfolio-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.6rem;
+	margin-top: 1.6rem;
+}
+
+.portfolio-item img {
+	width: 100%;
+	height: auto;
+	min-height: 12rem;
+	max-height: 18rem;
+	object-fit: contain;
+	object-position: center;
+	background: #e8e8e8;
+	border-radius: 1rem;
+	border: 2px solid black;
+	margin-bottom: 1rem;
+}
+
+.portfolio-item h3 {
+	font-size: 1.6rem;
+	margin-bottom: 0.4rem;
+}
+
+.portfolio-item p {
+	font-size: 1.3rem;
+	color: #666;
+	margin-bottom: 0;
+}
+
+/* end of welcome page */
+
+
+@media (max-width: 912px){
+	
+	.hero{
+		margin: 0;
+		padding: 0;
+		background-image: url("daniel-storek-JM-qKEd1GMI-unsplash.jpg ");
+		background-size: cover;
+		background-position: center;
+	}
+
+
+	nav ul li a:hover{
+	transition: 0.1s;
+	background-color: black;
+	color:white;
+}
+
+	.founder-header {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.founder-stats {
+		grid-template-columns: 1fr;
+	}
+
+	.portfolio-grid {
+		grid-template-columns: 1fr;
+	}
+
+}
+

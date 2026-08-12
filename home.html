@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Fos.com - Home</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="merger.css">
+	<script src="https://kit.fontawesome.com/b5b26585e9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<header class="site-header">
+		<div class="header-top">
+			<a href="Fos.com.gh.html" class="logo">
+				<img src="My project.png" alt="Fos.com">
+			</a>
+
+			<form class="header-search" id="header_search_form">
+				<button type="button" class="search-camera" id="search_camera_btn" aria-label="Open camera">
+					<i class="fa-solid fa-camera"></i>
+				</button>
+				<input type="search" id="header_search_input" placeholder="Search shoes, shirts, accessories..." autocomplete="off">
+				<button type="submit" class="search-submit" aria-label="Search">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</button>
+			</form>
+
+			<div class="header-utils">
+				<button type="button" class="util-link locale-btn util-hide-mobile">
+					<span class="flag">🇬🇭</span>
+					<span>EN/GHS</span>
+					<i class="fa-solid fa-chevron-down"></i>
+				</button>
+				<div class="account-actions">
+					<i class="fa-regular fa-user account-icon"></i>
+					<div class="account-text">
+						<span class="account-welcome">Welcome</span>
+						<div class="account-buttons">
+							<button type="button" id="sign_in_btn">Sign in</button>
+							<span class="account-divider">/</span>
+							<button type="button" id="register_btn">Register</button>
+						</div>
+					</div>
+				</div>
+				<button type="button" class="util-link cart-link" id="shop_cart">
+					<span class="cart-badge">0</span>
+					<i class="fa-solid fa-cart-shopping"></i>
+					<span>Cart</span>
+				</button>
+				<button type="button" id="theme_toggle" class="theme_toggle" aria-label="Toggle dark mode">
+					<i class="fa-solid fa-moon theme_icon theme_icon--dark"></i>
+					<i class="fa-solid fa-sun theme_icon theme_icon--light"></i>
+				</button>
+			</div>
+		</div>
+
+		<nav class="header-nav">
+			<button type="button" class="categories-btn" id="menu_bar">
+				<i class="fa-solid fa-bars"></i>
+				<span>All Categories</span>
+			</button>
+			<div class="nav-links navbar" id="navbar">
+				<a href="#" class="nav-deals">SuperDeals</a>
+				<a href="#">Choice</a>
+				<a href="#">Women</a>
+				<a href="#">Men</a>
+				<a href="#">Gallery</a>
+				<a href="#" class="nav-more">More <i class="fa-solid fa-chevron-down"></i></a>
+			</div>
+		</nav>
+	</header>
+
+	<main class="page-main">
+		<section class="hero-banner">
+			<div class="hero-content hero-content--summer">
+				<h1>Summer collection</h1>
+				<p>Upgrade your wardrobe style</p>
+				<a href="#" class="hero-btn">Shop now</a>
+			</div>
+			<div class="hero-products">
+				<article class="hero-card hero-card--1" data-search-item="Casual wear summer collection GH₵89">
+					<img src="andres-jasso-PqbL_mxmaUE-unsplash.jpg" alt="Casual wear">
+					<span class="hero-price">GH₵89</span>
+				</article>
+				<article class="hero-card hero-card--2" data-search-item="Street style summer collection GH₵65">
+					<img src="imani-bahati-LxVxPA1LOVM-unsplash.jpg" alt="Street style">
+					<span class="hero-price">GH₵65</span>
+				</article>
+				<article class="hero-card hero-card--3" data-search-item="Summer outfit collection GH₵131">
+					<img src="santosh-verma-i49yJtWD57w-unsplash.jpg" alt="Summer outfit">
+					<span class="hero-price">GH₵131</span>
+				</article>
+			</div>
+		</section>
+
+		<div class="promo-bar">
+			<i class="fa-solid fa-truck-fast"></i>
+			<span><strong>Free shipping</strong> · On all Choice items</span>
+		</div>
+
+		<section class="deals-section">
+			<h2>Today's deals</h2>
+			<div class="deals-grid">
+				<article class="deal-card">
+					<div class="deal-card-header">
+						<h3>Bundle deals</h3>
+						<span class="deal-badge deal-badge--bundle">
+							<i class="fa-solid fa-bag-shopping"></i>
+							3+ from GH₵29 each
+						</span>
+					</div>
+					<div class="deal-products">
+						<a href="#" class="deal-item" data-search-item="Shirt bundle deal GH₵29"><img src="bs.jpg" alt="Shirt"><span>GH₵29</span></a>
+						<a href="#" class="deal-item" data-search-item="Jacket bundle deal GH₵35"><img src="matt-moloney-YeGao3uk8kI-unsplash.jpg" alt="Jacket"><span>GH₵35</span></a>
+						<a href="#" class="deal-item" data-search-item="Fashion bundle deal GH₵42"><img src="alexi-romano-CCx6Fz_CmOI-unsplash.jpg" alt="Fashion"><span>GH₵42</span></a>
+						<a href="#" class="deal-item" data-search-item="Casual wear bundle deal GH₵38"><img src="andres-jasso-PqbL_mxmaUE-unsplash.jpg" alt="Casual wear"><span>GH₵38</span></a>
+						<a href="#" class="deal-item" data-search-item="Street style bundle deal GH₵31"><img src="imani-bahati-LxVxPA1LOVM-unsplash.jpg" alt="Street style"><span>GH₵31</span></a>
+						<a href="#" class="deal-item" data-search-item="Summer outfit bundle deal GH₵45"><img src="santosh-verma-i49yJtWD57w-unsplash.jpg" alt="Summer outfit"><span>GH₵45</span></a>
+					</div>
+				</article>
+
+				<article class="deal-card">
+					<div class="deal-card-header">
+						<h3>SuperDeals</h3>
+						<span class="deal-badge deal-badge--timer">
+							<i class="fa-regular fa-clock"></i>
+							Ends in: <span id="deal_countdown">21:46:48</span>
+						</span>
+					</div>
+					<div class="deal-products">
+						<a href="#" class="deal-item" data-search-item="Shoes super deal GH₵55"><img src="daniel-storek-JM-qKEd1GMI-unsplash.jpg" alt="Shoes"><span>GH₵55</span></a>
+						<a href="#" class="deal-item" data-search-item="Sneakers super deal GH₵72"><img src="dom-hill-nimElTcTNyY-unsplash.jpg" alt="Sneakers"><span>GH₵72</span></a>
+						<a href="#" class="deal-item" data-search-item="Shirt super deal GH₵19"><img src="bs.jpg" alt="Shirt"><span>GH₵19</span></a>
+						<a href="#" class="deal-item" data-search-item="Jacket super deal GH₵48"><img src="matt-moloney-YeGao3uk8kI-unsplash.jpg" alt="Jacket"><span>GH₵48</span></a>
+						<a href="#" class="deal-item" data-search-item="Fashion super deal GH₵63"><img src="alexi-romano-CCx6Fz_CmOI-unsplash.jpg" alt="Fashion"><span>GH₵63</span></a>
+						<a href="#" class="deal-item" data-search-item="Casual wear super deal GH₵27"><img src="andres-jasso-PqbL_mxmaUE-unsplash.jpg" alt="Casual wear"><span>GH₵27</span></a>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section class="gallery-section">
+			<h2>Our wardrobe</h2>
+			<div class="gallery-grid wardrobe-grid">
+				<article class="wardrobe-item wardrobe-item--puma" data-search-item="Puma Clyde Court shoes GH₵150">
+					<img src="Puma Clyde Court.jpeg" alt="Puma Clyde Court Disrupt">
+					<span class="wardrobe-price">GH₵150</span>
+					<button type="button" class="wardrobe-cart-btn" data-id="puma-clyde" data-name="Puma Clyde Court Disrupt" data-price="150" data-image="Puma Clyde Court.jpeg" aria-label="Add Puma Clyde Court to cart">
+						<i class="fa-solid fa-cart-shopping"></i>
+					</button>
+				</article>
+				<article class="wardrobe-item wardrobe-item--multicolor" data-search-item="Multicolor sneakers shoes GH₵150">
+					<img src="multicolor-sneakers.jpg" alt="Multicolor sneakers">
+					<span class="wardrobe-price">GH₵150</span>
+					<button type="button" class="wardrobe-cart-btn" data-id="multicolor-sneakers" data-name="Multicolor Sneakers" data-price="150" data-image="multicolor-sneakers.jpg" aria-label="Add multicolor sneakers to cart">
+						<i class="fa-solid fa-cart-shopping"></i>
+					</button>
+				</article>
+				<article class="wardrobe-item wardrobe-item--stan-smith" data-search-item="Adidas Stan Smith shoes GH₵150">
+					<img src="Adidas Stan_Smith_Shoes_.jpg" alt="Adidas Stan Smith">
+					<span class="wardrobe-price">GH₵150</span>
+					<button type="button" class="wardrobe-cart-btn" data-id="stan-smith" data-name="Adidas Stan Smith" data-price="150" data-image="Adidas Stan_Smith_Shoes_.jpg" aria-label="Add Adidas Stan Smith to cart">
+						<i class="fa-solid fa-cart-shopping"></i>
+					</button>
+				</article>
+			</div>
+		</section>
+	</main>
+
+	<aside class="float-sidebar">
+		<button type="button" class="sidebar-btn" id="sidebar_cart" aria-label="Cart">
+			<i class="fa-solid fa-cart-shopping"></i>
+		</button>
+		<a href="#" class="sidebar-btn" aria-label="Messages">
+			<i class="fa-regular fa-comment-dots"></i>
+		</a>
+		<a href="#" class="sidebar-btn" aria-label="Coupons">
+			<i class="fa-solid fa-ticket"></i>
+		</a>
+		<button type="button" class="sidebar-btn" aria-label="Feedback">
+			<i class="fa-regular fa-pen-to-square"></i>
+		</button>
+	</aside>
+
+	<div class="camera_popup" id="camera_popup">
+		<div class="camera_popup_overlay" id="camera_overlay"></div>
+		<div class="camera_popup_content">
+			<button type="button" class="camera_close" id="camera_close" aria-label="Close camera">&times;</button>
+			<h2>Camera</h2>
+			<p class="camera_status" id="camera_status">Requesting camera permission...</p>
+			<div class="camera_view">
+				<video id="camera_video" autoplay playsinline muted></video>
+			</div>
+		</div>
+	</div>
+
+	<div class="auth_popup" id="sign_in_popup">
+		<div class="auth_popup_overlay" id="sign_in_overlay"></div>
+		<div class="auth_popup_content">
+			<button type="button" class="auth_close" id="sign_in_close" aria-label="Close sign in">&times;</button>
+			<h2>Sign In</h2>
+			<p class="auth_subtitle">Welcome back to Fos.com</p>
+			<form class="auth_form" id="sign_in_form">
+				<div class="form_group">
+					<label for="signin_email">Email</label>
+					<input type="email" id="signin_email" name="email" placeholder="you@example.com" required>
+				</div>
+				<div class="form_group">
+					<label for="signin_password">Password</label>
+					<input type="password" id="signin_password" name="password" placeholder="Enter your password" required>
+				</div>
+				<div class="auth_form_row">
+					<label class="checkbox_label">
+						<input type="checkbox" id="signin_remember" name="remember">
+						Remember me
+					</label>
+					<button type="button" class="auth_link_btn" id="forgot_password_btn">Forgot password?</button>
+				</div>
+				<button type="submit" class="auth_submit_btn">Sign In</button>
+			</form>
+			<p class="auth_switch">
+				Don't have an account?
+				<button type="button" class="auth_link_btn" id="switch_to_register">Register</button>
+			</p>
+		</div>
+	</div>
+
+	<div class="auth_popup" id="register_popup">
+		<div class="auth_popup_overlay" id="register_overlay"></div>
+		<div class="auth_popup_content">
+			<button type="button" class="auth_close" id="register_close" aria-label="Close register">&times;</button>
+			<h2>Create Account</h2>
+			<p class="auth_subtitle">Join Fos.com and start shopping</p>
+			<form class="auth_form" id="register_form">
+				<div class="form_group">
+					<label for="register_name">Full Name</label>
+					<input type="text" id="register_name" name="name" placeholder="John Doe" required>
+				</div>
+				<div class="form_group">
+					<label for="register_email">Email</label>
+					<input type="email" id="register_email" name="email" placeholder="you@example.com" required>
+				</div>
+				<div class="form_group">
+					<label for="register_phone">Phone Number</label>
+					<input type="tel" id="register_phone" name="phone" placeholder="+233 00 000 0000" required>
+				</div>
+				<div class="form_group">
+					<label for="register_password">Password</label>
+					<input type="password" id="register_password" name="password" placeholder="Create a password" minlength="8" required>
+				</div>
+				<div class="form_group">
+					<label for="register_confirm">Confirm Password</label>
+					<input type="password" id="register_confirm" name="confirm" placeholder="Confirm your password" minlength="8" required>
+				</div>
+				<label class="checkbox_label auth_terms">
+					<input type="checkbox" id="register_terms" name="terms" required>
+					I agree to the Terms of Service and Privacy Policy
+				</label>
+				<button type="submit" class="auth_submit_btn">Create Account</button>
+			</form>
+			<p class="auth_switch">
+				Already have an account?
+				<button type="button" class="auth_link_btn" id="switch_to_signin">Sign in</button>
+			</p>
+		</div>
+	</div>
+
+	<div class="search_popup" id="search_popup">
+		<div class="search_popup_overlay" id="search_overlay"></div>
+		<div class="search_popup_content">
+			<button type="button" class="search_close" id="search_close" aria-label="Close search">&times;</button>
+			<h2>Search Results</h2>
+			<p class="search_query_label" id="search_query_label"></p>
+			<ul class="search_results_list" id="search_results_list"></ul>
+			<p class="search_no_results" id="search_no_results">No matches found on this page.</p>
+		</div>
+	</div>
+
+	<div class="cart_popup" id="cart_popup">
+		<div class="cart_popup_overlay" id="cart_overlay"></div>
+		<div class="cart_popup_content">
+			<button type="button" class="cart_close" id="cart_close" aria-label="Close cart">&times;</button>
+			<h2>Shopping Cart</h2>
+			<div class="cart_items" id="cart_items"></div>
+			<div class="cart_empty" id="cart_empty">
+				<i class="fa-solid fa-cart-shopping"></i>
+				<p>Your cart is empty</p>
+			</div>
+			<form class="cart_form" id="cart_form">
+				<fieldset class="cart_fieldset">
+					<legend>Contact Details</legend>
+					<div class="form_group">
+						<label for="cart_name">Full Name</label>
+						<input type="text" id="cart_name" name="name" placeholder="John Doe" required>
+					</div>
+					<div class="form_group">
+						<label for="cart_email">Email</label>
+						<input type="email" id="cart_email" name="email" placeholder="you@example.com" required>
+					</div>
+					<div class="form_group">
+						<label for="cart_phone">Phone</label>
+						<input type="tel" id="cart_phone" name="phone" placeholder="+233 00 000 0000" required>
+					</div>
+				</fieldset>
+				<fieldset class="cart_fieldset">
+					<legend>Shipping Address</legend>
+					<div class="form_group">
+						<label for="cart_address">Street Address</label>
+						<input type="text" id="cart_address" name="address" placeholder="123 Main Street" required>
+					</div>
+					<div class="form_row">
+						<div class="form_group">
+							<label for="cart_city">City</label>
+							<input type="text" id="cart_city" name="city" placeholder="Accra" required>
+						</div>
+						<div class="form_group">
+							<label for="cart_zip">Postal Code</label>
+							<input type="text" id="cart_zip" name="zip" placeholder="GA-123" required>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="cart_fieldset">
+					<legend>Order Notes</legend>
+					<div class="form_group">
+						<label for="cart_notes">Special Instructions (optional)</label>
+						<textarea id="cart_notes" name="notes" rows="3" placeholder="Delivery instructions..."></textarea>
+					</div>
+				</fieldset>
+				<div class="cart_summary">
+					<div class="cart_summary_row">
+						<span>Subtotal</span>
+						<span id="cart_subtotal">GH₵0.00</span>
+					</div>
+					<div class="cart_summary_row cart_total">
+						<span>Total</span>
+						<span id="cart_total">GH₵0.00</span>
+					</div>
+				</div>
+				<button type="submit" class="cart_submit_btn">Place Order</button>
+			</form>
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+</html>
