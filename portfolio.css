@@ -103,21 +103,6 @@ body.portfolio-page.dark-mode .portfolio-glow {
 	border-bottom: 1px solid var(--border);
 }
 
-.portfolio-logo {
-	display: flex;
-	align-items: center;
-	height: 5.6rem;
-}
-
-.portfolio-logo img {
-	height: 100%;
-	width: auto;
-	max-width: 16rem;
-	min-width: 8rem;
-	object-fit: contain;
-	object-position: left center;
-}
-
 .portfolio-nav {
 	display: flex;
 	gap: 3.2rem;
@@ -219,8 +204,8 @@ body.portfolio-page.dark-mode .portfolio-glow {
 .portfolio-arch-frame {
 	position: relative;
 	width: 34rem;
-	height: 38rem;
-	border-radius: 17rem 17rem 0 0;
+	height: 34rem;
+	border-radius: 50%;
 	overflow: hidden;
 	background: var(--hero-bg);
 	border: 2px solid var(--border);
@@ -248,7 +233,7 @@ body.portfolio-page.dark-mode .portfolio-glow {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	object-position: center 15%;
+	object-position: center 20%;
 	display: block;
 	image-rendering: auto;
 	-webkit-backface-visibility: hidden;
@@ -318,21 +303,6 @@ body.portfolio-page.dark-mode .portfolio-slider-btn {
 
 .portfolio-slider-dot:hover {
 	background: rgba(255, 71, 71, 0.4);
-}
-
-.portfolio-wave {
-	position: absolute;
-	bottom: 5rem;
-	left: 50%;
-	transform: translateX(-35%);
-	width: 28rem;
-	height: 8rem;
-	z-index: 2;
-	pointer-events: none;
-}
-
-.portfolio-wave path {
-	stroke: var(--accent);
 }
 
 .portfolio-intro h1 {
@@ -548,8 +518,8 @@ body.portfolio-page.dark-mode .work-card--hero:hover {
 
 	.portfolio-arch-frame {
 		width: 26rem;
-		height: 30rem;
-		border-radius: 13rem 13rem 0 0;
+		height: 26rem;
+		border-radius: 50%;
 	}
 
 	.portfolio-slider-btn--prev {
@@ -574,9 +544,5 @@ body.portfolio-page.dark-mode .work-card--hero:hover {
 @media (max-width: 600px) {
 	.portfolio-intro h1 {
 		font-size: 4rem;
-	}
-
-	.portfolio-wave {
-		display: none;
 	}
 }

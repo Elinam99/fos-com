@@ -692,6 +692,7 @@ body.dark-mode .deal-badge--bundle {
 
 .wardrobe-item {
 	position: relative;
+	height: 28rem;
 	border-radius: 1.2rem;
 	overflow: hidden;
 	border: 4px solid transparent;
@@ -718,9 +719,7 @@ body.dark-mode .deal-badge--bundle {
 
 .wardrobe-item img {
 	width: 100%;
-	height: auto;
-	min-height: 20rem;
-	max-height: 32rem;
+	height: 100%;
 	object-fit: contain;
 	object-position: center;
 	background: #dcdcdc;
@@ -1568,8 +1567,7 @@ body.dark-mode .wardrobe-price {
 		grid-template-columns: 1fr;
 	}
 
-	.wardrobe-item img {
-		min-height: 18rem;
-		max-height: 26rem;
+	.wardrobe-item {
+		height: 22rem;
 	}
 }
