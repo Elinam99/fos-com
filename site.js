@@ -60,10 +60,18 @@
 
 				contactForm.reset();
 				formSuccess.classList.add('visible');
-				setTimeout(() => formSuccess.classList.remove('visible'), 6000);
+				if (submitBtn) {
+					submitBtn.disabled = false;
+					submitBtn.innerHTML = 'Sent <span aria-hidden="true">✓</span>';
+				}
+				setTimeout(() => {
+					formSuccess.classList.remove('visible');
+					if (submitBtn) {
+						submitBtn.innerHTML = 'Send Message <span aria-hidden="true">→</span>';
+					}
+				}, 4000);
 			} catch (err) {
 				formError?.classList.add('visible');
-			} finally {
 				if (submitBtn) {
 					submitBtn.disabled = false;
 					submitBtn.innerHTML = 'Send Message <span aria-hidden="true">→</span>';

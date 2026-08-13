@@ -131,6 +131,8 @@
 
 .form-success.visible {
 	display: block;
+	font-weight: 600;
+	text-align: center;
 }
 
 .form-error {
