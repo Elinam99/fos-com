@@ -13,6 +13,7 @@ const menuBar = document.querySelector('#menu_bar');
 const navbar = document.querySelector('#navbar');
 const categoriesPopup = document.querySelector('#categories_popup');
 const categoriesOverlay = document.querySelector('#categories_overlay');
+const categoriesMoreBtn = document.querySelector('#categories_more_btn');
 const themeToggle = document.querySelector('#theme_toggle');
 const headerSearchForm = document.querySelector('#header_search_form');
 const headerSearchInput = document.querySelector('#header_search_input');
@@ -852,9 +853,19 @@ document.addEventListener('pointerdown', (e) => {
 	}
 });
 
+function setCategoriesMoreExpanded(expanded) {
+	navbar?.classList.toggle('show-more', expanded);
+	if (!categoriesMoreBtn) return;
+	categoriesMoreBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+	categoriesMoreBtn.innerHTML = expanded
+		? 'Less <i class="fa-solid fa-chevron-up"></i>'
+		: 'More <i class="fa-solid fa-chevron-down"></i>';
+}
+
 function closeCategories() {
 	categoriesPopup?.classList.remove('active');
 	navbar?.classList.remove('active');
+	setCategoriesMoreExpanded(false);
 	menuBar?.setAttribute('aria-expanded', 'false');
 	if (categoriesOverlay) {
 		categoriesOverlay.setAttribute('aria-hidden', 'true');
@@ -886,6 +897,11 @@ menuBar?.addEventListener('click', (e) => {
 });
 
 categoriesOverlay?.addEventListener('click', closeCategories);
+
+categoriesMoreBtn?.addEventListener('click', (e) => {
+	e.stopPropagation();
+	setCategoriesMoreExpanded(!navbar?.classList.contains('show-more'));
+});
 
 document.addEventListener('pointerdown', (e) => {
 	if (!categoriesPopup?.classList.contains('active')) return;

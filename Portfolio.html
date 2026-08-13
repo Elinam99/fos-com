@@ -16,30 +16,27 @@
 	<div class="portfolio-glow portfolio-glow--hero" aria-hidden="true"></div>
 	<div class="portfolio-glow portfolio-glow--muted" aria-hidden="true"></div>
 
+	<div class="portfolio-header-bar">
 	<header class="portfolio-header">
 		<nav class="portfolio-nav">
-			<a href="home.html">Store</a>
-			<a href="Portfolio.html" class="active">Portfolio</a>
-			<a href="About.html">About</a>
-			<a href="founder.html">Founders</a>
-			<a href="Contact.html">Contact</a>
+			<a href="projects.html" class="portfolio-header-btn">Projects</a>
 		</nav>
 		<div class="portfolio-header-actions">
-			<button type="button" class="portfolio-theme-btn" id="theme_toggle" aria-label="Toggle dark mode">
-				<i class="fa-solid fa-moon theme_icon theme_icon--dark"></i>
-				<i class="fa-solid fa-sun theme_icon theme_icon--light"></i>
-			</button>
-			<a href="founders/Resume.pdf" class="portfolio-cv-btn" download="Geoffrey-Resume.pdf">
-				Download Resume
+			<a href="founders/Resume.pdf" class="portfolio-header-btn" id="resume_download_btn" download="Geoffrey-Resume.pdf">
+				Resume
 				<i class="fa-solid fa-download"></i>
 			</a>
+			<button type="button" class="portfolio-theme-btn" id="theme_toggle" aria-label="Toggle dark mode">
+				<span class="portfolio-theme-glyph portfolio-theme-glyph--dark" aria-hidden="true">☾</span>
+				<span class="portfolio-theme-glyph portfolio-theme-glyph--light" aria-hidden="true">☀</span>
+			</button>
 		</div>
 	</header>
+	</div>
 
 	<main class="portfolio-hero">
 		<div class="portfolio-social">
 			<a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-			<a href="#" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
 			<a href="home.html" aria-label="Fos.com store"><i class="fa-solid fa-globe"></i></a>
 		</div>
 
@@ -99,48 +96,22 @@
 		</div>
 	</section>
 
-	<section class="portfolio-work">
-		<h2>Selected work</h2>
-		<div class="portfolio-work-grid">
-			<a href="Fos.com.gh.html" class="work-card">
-				<img src="daniel-storek-JM-qKEd1GMI-unsplash.jpg" alt="Fos landing page">
-				<h3>Landing page</h3>
-				<p>Welcome experience &amp; brand identity</p>
-			</a>
-			<a href="home.html" class="work-card work-card--hero">
-				<img src="dom-hill-nimElTcTNyY-unsplash.jpg" alt="Summer collection">
-				<h3>Store homepage</h3>
-				<p>Summer collection &amp; deals layout</p>
-			</a>
-			<a href="home.html#wardrobe" class="work-card">
-				<img src="multicolor-sneakers.jpg" alt="Wardrobe section">
-				<h3>Wardrobe shop</h3>
-				<p>Product gallery &amp; cart experience</p>
-			</a>
-		</div>
-	</section>
-
 	<footer class="portfolio-footer">
 		<p>&copy; 2024 Geoffrey — Fos.com</p>
 		<div class="portfolio-footer-links">
-			<a href="Fos.com.gh.html">Landing</a>
-			<a href="home.html">Store</a>
-			<a href="founder.html">Founders</a>
 			<a href="Contact.html">Contact</a>
 		</div>
 	</footer>
 
 	<script>
 		const themeToggle = document.getElementById('theme_toggle');
-		const themeIconDark = document.querySelector('.theme_icon--dark');
-		const themeIconLight = document.querySelector('.theme_icon--light');
-
-		if (themeIconLight) themeIconLight.style.display = 'none';
+		const themeGlyphDark = document.querySelector('.portfolio-theme-glyph--dark');
+		const themeGlyphLight = document.querySelector('.portfolio-theme-glyph--light');
 
 		function setTheme(isDark) {
 			document.body.classList.toggle('dark-mode', isDark);
-			if (themeIconDark) themeIconDark.style.display = isDark ? 'none' : 'inline';
-			if (themeIconLight) themeIconLight.style.display = isDark ? 'inline' : 'none';
+			if (themeGlyphDark) themeGlyphDark.hidden = isDark;
+			if (themeGlyphLight) themeGlyphLight.hidden = !isDark;
 			localStorage.setItem('fos-theme', isDark ? 'dark' : 'light');
 		}
 
@@ -152,7 +123,21 @@
 
 		if (localStorage.getItem('fos-theme') === 'dark') {
 			setTheme(true);
+		} else {
+			setTheme(false);
 		}
+
+		const resumeDownloadBtn = document.getElementById('resume_download_btn');
+		resumeDownloadBtn?.addEventListener('click', (e) => {
+			e.preventDefault();
+			if (!confirm('Do you want to download the resume?')) return;
+			const link = document.createElement('a');
+			link.href = resumeDownloadBtn.getAttribute('href');
+			link.download = resumeDownloadBtn.getAttribute('download') || 'Geoffrey-Resume.pdf';
+			document.body.appendChild(link);
+			link.click();
+			link.remove();
+		});
 
 		const portfolioSlider = document.getElementById('portfolio_slider');
 		const sliderDots = document.querySelectorAll('.portfolio-slider-dot');

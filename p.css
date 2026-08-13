@@ -20,42 +20,13 @@ img {
 .hero{
 	height: 100vh;
 	min-height: 100vh;
-	width: 100%;
-	background-color: black;
-	background-image: url("daniel-storek-JM-qKEd1GMI-unsplash.jpg");
+	 width: 100%
+	background-color:black;
+	background-image: url("daniel-storek-JM-qKEd1GMI-unsplash.jpg ");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-}
-
-.logo-link {
-	display: inline-flex;
-	align-items: center;
-}
-
-.logo {
-	height: 5rem;
-	width: auto;
-	max-width: 14rem;
-	object-fit: contain;
-}
-
-.hero-explore-btn {
-	display: inline-block;
-	background-color: white;
-	border: 2px solid black;
-	border-radius: 12px;
-	padding: 10px 20px;
-	color: black;
-	margin-top: 25px;
-	font-weight: bold;
-	font-size: 1.6rem;
-	text-decoration: none;
-}
-
-.hero-explore-btn:hover {
-	background-color: black;
-	color: white;
+	
 }
 nav{
 	display: flex;
@@ -371,7 +342,7 @@ body.founder-page {
 	.hero{
 		margin: 0;
 		padding: 0;
-		background-image: url("daniel-storek-JM-qKEd1GMI-unsplash.jpg");
+		background-image: url("daniel-storek-JM-qKEd1GMI-unsplash.jpg ");
 		background-size: cover;
 		background-position: center;
 	}
