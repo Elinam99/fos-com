@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Projects — Geoffrey | Fos.com</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="portfolio.css">
+	<link rel="stylesheet" href="translate.css">
+	<script src="https://kit.fontawesome.com/b5b26585e9.js" crossorigin="anonymous"></script>
+</head>
+<body class="portfolio-page">
+	<div class="portfolio-glow portfolio-glow--accent" aria-hidden="true"></div>
+	<div class="portfolio-glow portfolio-glow--hero" aria-hidden="true"></div>
+	<div class="portfolio-glow portfolio-glow--muted" aria-hidden="true"></div>
+
+	<div class="portfolio-header-bar">
+	<header class="portfolio-header">
+		<nav class="portfolio-nav">
+			<a href="projects.html" class="portfolio-header-btn active">Projects</a>
+		</nav>
+		<div class="portfolio-header-actions">
+			<button type="button" class="portfolio-theme-btn" id="theme_toggle" aria-label="Toggle dark mode">
+				<span class="portfolio-theme-glyph portfolio-theme-glyph--dark" aria-hidden="true">☾</span>
+				<span class="portfolio-theme-glyph portfolio-theme-glyph--light" aria-hidden="true">☀</span>
+			</button>
+		</div>
+	</header>
+	</div>
+
+	<section class="portfolio-work portfolio-work--page">
+		<h2>Selected work</h2>
+		<div class="portfolio-work-grid">
+			<a href="home.html" class="work-card work-card--hero">
+				<img src="store-homepage.png" alt="Fos.com store homepage">
+				<h3>Store homepage</h3>
+				<p>Summer collection &amp; deals layout</p>
+			</a>
+			<div class="work-card">
+				<img src="3d-projects.png" alt="3D CAD rocket model in FreeCAD">
+				<h3>3D projects</h3>
+				<p>CAD models &amp; product visualization</p>
+			</div>
+			<div class="work-card">
+				<div class="work-card-media work-card-media--empty" aria-hidden="true"></div>
+				<h3>Alien Invasion Game</h3>
+				<p>Python arcade-style game project</p>
+			</div>
+		</div>
+	</section>
+
+	<footer class="portfolio-footer">
+		<p>&copy; 2024 Geoffrey — Fos.com</p>
+		<div class="portfolio-footer-links">
+			<a href="Contact.html">Contact</a>
+		</div>
+	</footer>
+
+	<script>
+		const themeToggle = document.getElementById('theme_toggle');
+		const themeGlyphDark = document.querySelector('.portfolio-theme-glyph--dark');
+		const themeGlyphLight = document.querySelector('.portfolio-theme-glyph--light');
+
+		function setTheme(isDark) {
+			document.body.classList.toggle('dark-mode', isDark);
+			if (themeGlyphDark) themeGlyphDark.hidden = isDark;
+			if (themeGlyphLight) themeGlyphLight.hidden = !isDark;
+			localStorage.setItem('fos-theme', isDark ? 'dark' : 'light');
+		}
+
+		if (themeToggle) {
+			themeToggle.addEventListener('click', () => {
+				setTheme(!document.body.classList.contains('dark-mode'));
+			});
+		}
+
+		if (localStorage.getItem('fos-theme') === 'dark') {
+			setTheme(true);
+		} else {
+			setTheme(false);
+		}
+	</script>
+	<div id="google_translate_element" aria-hidden="true"></div>
+	<script src="translate.js"></script>
+	<script src="https://translate.google.com/translate_element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
