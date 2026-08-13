@@ -6,7 +6,7 @@
 	<title>Geoffrey — Portfolio | Fos.com</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="portfolio.css">
 	<link rel="stylesheet" href="translate.css">
 	<script src="https://kit.fontawesome.com/b5b26585e9.js" crossorigin="anonymous"></script>
@@ -35,72 +35,56 @@
 	</div>
 
 	<main class="portfolio-hero">
-		<div class="portfolio-social">
-			<a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-			<a href="home.html" aria-label="Fos.com store"><i class="fa-solid fa-globe"></i></a>
-		</div>
+		<div class="portfolio-hero-layout">
+			<div class="portfolio-hero-copy">
+				<span class="portfolio-availability">
+					<span class="portfolio-availability-dot" aria-hidden="true"></span>
+					Available for new opportunities
+				</span>
+				<p class="portfolio-greeting">Hi I'm Geoffrey</p>
+				<h1 class="portfolio-role">Fos.com Designer</h1>
+				<p class="portfolio-tagline">
+					Building Ghana's fashion digital marketplace.
+				</p>
+			</div>
 
-		<div class="portfolio-visual">
-			<div class="portfolio-arch-frame">
-				<div class="portfolio-slider" id="portfolio_slider">
-					<div class="portfolio-slide">
-						<img
-							src="founders/Founder Geoffrey.JPG"
-							alt="Founder Geoffrey"
-							width="680"
-							height="760"
-							loading="eager"
-							decoding="async">
-					</div>
-					<div class="portfolio-slide">
-						<img
-							src="founders/Founder Geoffrey 2.jpg"
-							alt="Founder Geoffrey"
-							width="680"
-							height="760"
-							loading="lazy"
-							decoding="async">
+			<div class="portfolio-visual">
+				<div class="portfolio-hero-glow" aria-hidden="true"></div>
+				<div class="portfolio-slider-wrap">
+				<div class="portfolio-arch-frame">
+					<div class="portfolio-slider" id="portfolio_slider">
+						<div class="portfolio-slide">
+							<img
+								src="founders/Founder Geoffrey.JPG"
+								alt="Founder Geoffrey"
+								width="680"
+								height="760"
+								loading="eager"
+								decoding="async">
+						</div>
+						<div class="portfolio-slide">
+							<img
+								src="founders/Founder Geoffrey 2.jpg"
+								alt="Founder Geoffrey"
+								width="680"
+								height="760"
+								loading="lazy"
+								decoding="async">
+						</div>
 					</div>
 				</div>
-				<button type="button" class="portfolio-slider-btn portfolio-slider-btn--prev" id="slider_prev" aria-label="Previous photo">
-					<i class="fa-solid fa-chevron-left"></i>
-				</button>
-				<button type="button" class="portfolio-slider-btn portfolio-slider-btn--next" id="slider_next" aria-label="Next photo">
-					<i class="fa-solid fa-chevron-right"></i>
-				</button>
 			</div>
-			<div class="portfolio-slider-dots" id="slider_dots">
-				<button type="button" class="portfolio-slider-dot active" data-index="0" aria-label="Show photo 1"></button>
-				<button type="button" class="portfolio-slider-dot" data-index="1" aria-label="Show photo 2"></button>
 			</div>
-		</div>
-
-		<div class="portfolio-intro">
-			<h1>Geoffrey</h1>
-			<p>Co-Founder // Fos.com Designer</p>
 		</div>
 	</main>
 
-	<section class="portfolio-about">
-		<div class="portfolio-about-card">
-			<h2>About Geoffrey</h2>
-			<p>
-				Geoffrey helps shape Fos.com — Ghana's fashion marketplace — with a focus on clean design,
-				user experience, and building a platform that connects buyers and sellers with confidence.
-			</p>
-		</div>
-		<div class="portfolio-skills">
-			<span class="skill-tag skill-tag--accent">Web Dev</span>
-			<span class="skill-tag skill-tag--hero">3D CAD</span>
-			<span class="skill-tag skill-tag--muted">python Dev</span>
-		</div>
-	</section>
+	<a href="Contact.html" class="portfolio-get-in-touch">
+		<span class="portfolio-get-in-touch-arrow" aria-hidden="true">→</span>
+		Get in Touch
+	</a>
 
 	<footer class="portfolio-footer">
 		<p>&copy; 2024 Geoffrey — Fos.com</p>
-		<div class="portfolio-footer-links">
-			<a href="Contact.html">Contact</a>
-		</div>
 	</footer>
 
 	<script>
@@ -140,50 +124,18 @@
 		});
 
 		const portfolioSlider = document.getElementById('portfolio_slider');
-		const sliderDots = document.querySelectorAll('.portfolio-slider-dot');
-		const sliderPrev = document.getElementById('slider_prev');
-		const sliderNext = document.getElementById('slider_next');
+		const slides = portfolioSlider?.querySelectorAll('.portfolio-slide');
 
-		if (portfolioSlider && sliderDots.length) {
+		if (portfolioSlider && slides && slides.length > 1) {
 			let currentSlide = 0;
-			const slideCount = sliderDots.length;
-			let slideTimer;
+			const slideCount = slides.length;
 
 			function goToSlide(index) {
 				currentSlide = (index + slideCount) % slideCount;
-				portfolioSlider.style.transform = 'translateX(-' + (currentSlide * 50) + '%)';
-				sliderDots.forEach((dot, i) => {
-					dot.classList.toggle('active', i === currentSlide);
-				});
+				portfolioSlider.style.transform = 'translateX(-' + (currentSlide * (100 / slideCount)) + '%)';
 			}
 
-			function startAutoSlide() {
-				clearInterval(slideTimer);
-				slideTimer = setInterval(() => goToSlide(currentSlide + 1), 5000);
-			}
-
-			sliderDots.forEach((dot) => {
-				dot.addEventListener('click', () => {
-					goToSlide(Number(dot.dataset.index));
-					startAutoSlide();
-				});
-			});
-
-			if (sliderPrev) {
-				sliderPrev.addEventListener('click', () => {
-					goToSlide(currentSlide - 1);
-					startAutoSlide();
-				});
-			}
-
-			if (sliderNext) {
-				sliderNext.addEventListener('click', () => {
-					goToSlide(currentSlide + 1);
-					startAutoSlide();
-				});
-			}
-
-			startAutoSlide();
+			setInterval(() => goToSlide(currentSlide + 1), 5000);
 		}
 	</script>
 	<div id="google_translate_element" aria-hidden="true"></div>

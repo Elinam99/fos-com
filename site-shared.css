@@ -133,6 +133,43 @@
 	display: block;
 }
 
+.form-error {
+	display: none;
+	margin-top: 1.2rem;
+	padding: 1.2rem 1.4rem;
+	background: #fdecea;
+	border: 2px solid #c62828;
+	border-radius: 0.8rem;
+	font-size: 1.4rem;
+	color: #b71c1c;
+}
+
+.form-error.visible {
+	display: block;
+}
+
+body.contact-page.dark-mode .form-error,
+body.founder-page.dark-mode .form-error {
+	background: #3a1f1f;
+	border-color: #ef5350;
+	color: #ffcdd2;
+}
+
+.contact-honey {
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.contact-submit:disabled {
+	opacity: 0.7;
+	cursor: wait;
+	transform: none;
+}
+
 body.founder-page.dark-mode,
 body.landing-page.dark-mode {
 	background: #121212;

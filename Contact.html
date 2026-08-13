@@ -3,72 +3,105 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Contact - Fos.com</title>
-	<link rel="stylesheet" href="p.css">
+	<title>Contact — Fos.com</title>
 	<link rel="stylesheet" href="site-shared.css">
+	<link rel="stylesheet" href="contact.css">
 	<link rel="stylesheet" href="translate.css">
+	<script src="https://kit.fontawesome.com/b5b26585e9.js" crossorigin="anonymous"></script>
 </head>
-<body class="founder-page">
-	<div class="founder-wrap">
-		<nav class="founder-nav">
-			<a href="Fos.com.gh.html" class="founder-back">&larr; Landing</a>
-			<div class="founder-nav-links">
-				<a href="home.html">Store</a>
-				<a href="About.html">About</a>
-				<a href="Contact.html" class="active">Contact</a>
-				<a href="Portfolio.html">Portfolio</a>
-				<a href="founder.html">Founders</a>
-			</div>
-			<button type="button" class="site-theme-btn" id="site_theme_toggle" aria-label="Toggle dark mode">☾</button>
-		</nav>
+<body class="contact-page">
+	<div class="contact-glow contact-glow--accent" aria-hidden="true"></div>
+	<div class="contact-glow contact-glow--soft" aria-hidden="true"></div>
 
-		<header class="founder-header">
-			<div class="founder-intro">
-				<p class="founder-label">Get in touch</p>
-				<h1>Contact Us</h1>
-				<p class="founder-tagline">Have a question, partnership idea, or need help with an order? We'd love to hear from you.</p>
+	<div class="contact-header-bar">
+		<header class="contact-header">
+			<div class="contact-nav">
+				<a href="home.html" class="contact-back">&larr; Store</a>
+			</div>
+			<div class="contact-header-actions">
+				<button type="button" class="site-theme-btn" id="site_theme_toggle" aria-label="Toggle dark mode">☾</button>
 			</div>
 		</header>
-
-		<section class="founder-section">
-			<h2>Send a message</h2>
-			<form class="contact-form" id="contact_form">
-				<div class="form_group">
-					<label for="contact_name">Full Name</label>
-					<input type="text" id="contact_name" name="name" placeholder="Your name" required>
-				</div>
-				<div class="form_group">
-					<label for="contact_email">Email</label>
-					<input type="email" id="contact_email" name="email" placeholder="you@example.com" required>
-				</div>
-				<div class="form_group">
-					<label for="contact_subject">Subject</label>
-					<input type="text" id="contact_subject" name="subject" placeholder="How can we help?" required>
-				</div>
-				<div class="form_group">
-					<label for="contact_message">Message</label>
-					<textarea id="contact_message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
-				</div>
-				<button type="submit" class="founder-btn">Send Message</button>
-				<p class="form-success" id="contact_success" role="status">Thank you! Your message has been received. We'll get back to you soon.</p>
-			</form>
-		</section>
-
-		<section class="founder-section founder-stats">
-			<div class="founder-stat">
-				<strong>Email</strong>
-				<span><a href="mailto:support@fos.com.gh">support@fos.com.gh</a></span>
-			</div>
-			<div class="founder-stat">
-				<strong>Phone</strong>
-				<span><a href="tel:+233241234567">+233 24 123 4567</a></span>
-			</div>
-			<div class="founder-stat">
-				<strong>Location</strong>
-				<span>Accra, Ghana</span>
-			</div>
-		</section>
 	</div>
+
+	<main class="contact-main">
+		<div class="contact-hero">
+			<span class="contact-badge">
+				<span class="contact-badge-dot" aria-hidden="true"></span>
+				We typically reply within 24 hours
+			</span>
+			<h1>Get in Touch</h1>
+			<p>Questions about an order, selling on Fos.com, or partnering with us? Send a message and we'll get back to you.</p>
+		</div>
+
+		<div class="contact-grid">
+			<section class="contact-card">
+				<h2>Send a message</h2>
+				<form class="contact-form" id="contact_form" novalidate>
+					<input type="text" name="_honey" class="contact-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+					<div class="form_group">
+						<label for="contact_name">Full name</label>
+						<input type="text" id="contact_name" name="name" placeholder="Your name" required>
+					</div>
+					<div class="form_group">
+						<label for="contact_email">Email</label>
+						<input type="email" id="contact_email" name="email" placeholder="you@example.com" required>
+					</div>
+					<div class="form_group">
+						<label for="contact_subject">Subject</label>
+						<input type="text" id="contact_subject" name="subject" placeholder="How can we help?" required>
+					</div>
+					<div class="form_group">
+						<label for="contact_message">Message</label>
+						<textarea id="contact_message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+					</div>
+					<button type="submit" class="contact-submit" id="contact_submit_btn">
+						Send Message
+						<span aria-hidden="true">→</span>
+					</button>
+					<p class="form-success" id="contact_success" role="status">Thank you! Your message has been sent. We'll get back to you soon.</p>
+					<p class="form-error" id="contact_error" role="alert">Something went wrong. Please try again or email geoffreyadevor@gmail.com directly.</p>
+				</form>
+			</section>
+
+			<aside class="contact-card">
+				<h2>Contact details</h2>
+				<div class="contact-info-list">
+					<div class="contact-info-item">
+						<span class="contact-info-icon" aria-hidden="true"><i class="fa-regular fa-envelope"></i></span>
+						<div>
+							<strong>Email</strong>
+							<a href="mailto:geoffreyadevor@gmail.com" class="contact-info-link">geoffreyadevor@gmail.com</a>
+						</div>
+					</div>
+					<div class="contact-info-item">
+						<span class="contact-info-icon" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+						<div>
+							<strong>Phone</strong>
+							<a href="tel:+233540278754" class="contact-info-link">+233 54 027 8754</a>
+						</div>
+					</div>
+					<div class="contact-info-item">
+						<span class="contact-info-icon" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></span>
+						<div>
+							<strong>WhatsApp</strong>
+							<a href="https://wa.me/233540278754" class="contact-info-link" target="_blank" rel="noopener noreferrer">Chat instantly on WhatsApp</a>
+						</div>
+					</div>
+					<div class="contact-info-item">
+						<span class="contact-info-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+						<div>
+							<strong>Location</strong>
+							<span>Accra, Ghana</span>
+						</div>
+					</div>
+				</div>
+				<p class="contact-note">
+					<strong>Need help fast?</strong> Include your order number in the message so our team can assist you quicker.
+				</p>
+			</aside>
+		</div>
+	</main>
 
 	<footer class="site-footer">
 		<div class="site-footer-inner">
@@ -78,7 +111,6 @@
 				<a href="About.html">About</a>
 				<a href="Contact.html">Contact</a>
 				<a href="Portfolio.html">Portfolio</a>
-				<a href="founder.html">Founders</a>
 			</nav>
 			<p class="site-footer-copy">&copy; 2024 Fos.com — Ghana's fashion marketplace.</p>
 		</div>
