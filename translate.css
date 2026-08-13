@@ -1,0 +1,44 @@
+/* Hide default Google Translate UI — custom language picker only */
+#google_translate_element {
+	position: absolute !important;
+	left: -9999px !important;
+	width: 1px !important;
+	height: 1px !important;
+	overflow: hidden !important;
+	visibility: hidden !important;
+}
+
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame,
+iframe.skiptranslate {
+	display: none !important;
+	visibility: hidden !important;
+	height: 0 !important;
+}
+
+body {
+	top: 0 !important;
+	position: static !important;
+	margin-top: 0 !important;
+}
+
+html.translated-ltr,
+html.translated-rtl {
+	margin-top: 0 !important;
+}
+
+body > .skiptranslate,
+.goog-te-gadget,
+.goog-te-gadget-simple,
+.goog-te-menu-value,
+.goog-te-menu-value span,
+.goog-te-menu-frame,
+.goog-te-balloon-frame {
+	display: none !important;
+}
+
+.goog-logo-link,
+.goog-te-gadget-icon {
+	display: none !important;
+}

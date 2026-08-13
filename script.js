@@ -42,6 +42,124 @@ const cameraOverlay = document.querySelector('#camera_overlay');
 const cameraClose = document.querySelector('#camera_close');
 const cameraVideo = document.querySelector('#camera_video');
 const cameraStatus = document.querySelector('#camera_status');
+const locationDropdown = document.querySelector('#location_dropdown');
+const locationBtn = document.querySelector('#location_btn');
+const locationPanel = document.querySelector('#location_panel');
+const locationFlag = document.querySelector('#location_flag');
+const locationLabel = document.querySelector('#location_label');
+const languageDropdown = document.querySelector('#language_dropdown');
+const languageBtn = document.querySelector('#language_btn');
+const languagePanel = document.querySelector('#language_panel');
+const languageCodeEl = document.querySelector('#language_code');
+const languageWheelList = document.querySelector('#language_wheel_list');
+
+const COUNTRIES = [
+	{ code: 'GH', name: 'Ghana', flag: '🇬🇭' },
+	{ code: 'US', name: 'United States', flag: '🇺🇸' },
+	{ code: 'GB', name: 'United Kingdom', flag: '🇬🇧' },
+	{ code: 'CA', name: 'Canada', flag: '🇨🇦' },
+	{ code: 'NG', name: 'Nigeria', flag: '🇳🇬' },
+	{ code: 'ZA', name: 'South Africa', flag: '🇿🇦' },
+	{ code: 'KE', name: 'Kenya', flag: '🇰🇪' },
+	{ code: 'IN', name: 'India', flag: '🇮🇳' },
+	{ code: 'AU', name: 'Australia', flag: '🇦🇺' },
+	{ code: 'DE', name: 'Germany', flag: '🇩🇪' },
+	{ code: 'FR', name: 'France', flag: '🇫🇷' },
+	{ code: 'ES', name: 'Spain', flag: '🇪🇸' },
+	{ code: 'IT', name: 'Italy', flag: '🇮🇹' },
+	{ code: 'BR', name: 'Brazil', flag: '🇧🇷' },
+	{ code: 'MX', name: 'Mexico', flag: '🇲🇽' },
+	{ code: 'JP', name: 'Japan', flag: '🇯🇵' },
+	{ code: 'CN', name: 'China', flag: '🇨🇳' },
+	{ code: 'KR', name: 'South Korea', flag: '🇰🇷' },
+	{ code: 'AE', name: 'United Arab Emirates', flag: '🇦🇪' },
+	{ code: 'SA', name: 'Saudi Arabia', flag: '🇸🇦' },
+	{ code: 'NL', name: 'Netherlands', flag: '🇳🇱' },
+	{ code: 'BE', name: 'Belgium', flag: '🇧🇪' },
+	{ code: 'CH', name: 'Switzerland', flag: '🇨🇭' },
+	{ code: 'SE', name: 'Sweden', flag: '🇸🇪' },
+	{ code: 'NO', name: 'Norway', flag: '🇳🇴' },
+	{ code: 'DK', name: 'Denmark', flag: '🇩🇰' },
+	{ code: 'PL', name: 'Poland', flag: '🇵🇱' },
+	{ code: 'TR', name: 'Turkey', flag: '🇹🇷' },
+	{ code: 'EG', name: 'Egypt', flag: '🇪🇬' },
+	{ code: 'MA', name: 'Morocco', flag: '🇲🇦' },
+	{ code: 'SG', name: 'Singapore', flag: '🇸🇬' },
+	{ code: 'MY', name: 'Malaysia', flag: '🇲🇾' },
+	{ code: 'ID', name: 'Indonesia', flag: '🇮🇩' },
+	{ code: 'PH', name: 'Philippines', flag: '🇵🇭' },
+	{ code: 'TH', name: 'Thailand', flag: '🇹🇭' },
+	{ code: 'VN', name: 'Vietnam', flag: '🇻🇳' },
+	{ code: 'AR', name: 'Argentina', flag: '🇦🇷' },
+	{ code: 'CO', name: 'Colombia', flag: '🇨🇴' },
+	{ code: 'CL', name: 'Chile', flag: '🇨🇱' },
+	{ code: 'PT', name: 'Portugal', flag: '🇵🇹' },
+	{ code: 'IE', name: 'Ireland', flag: '🇮🇪' },
+	{ code: 'NZ', name: 'New Zealand', flag: '🇳🇿' },
+	{ code: 'IL', name: 'Israel', flag: '🇮🇱' },
+	{ code: 'RU', name: 'Russia', flag: '🇷🇺' },
+	{ code: 'UA', name: 'Ukraine', flag: '🇺🇦' },
+	{ code: 'PK', name: 'Pakistan', flag: '🇵🇰' },
+	{ code: 'BD', name: 'Bangladesh', flag: '🇧🇩' }
+];
+
+const LANGUAGES = [
+	{ code: 'EN', name: 'English' },
+	{ code: 'FR', name: 'French' },
+	{ code: 'ES', name: 'Spanish' },
+	{ code: 'DE', name: 'German' },
+	{ code: 'IT', name: 'Italian' },
+	{ code: 'PT', name: 'Portuguese' },
+	{ code: 'NL', name: 'Dutch' },
+	{ code: 'RU', name: 'Russian' },
+	{ code: 'ZH', name: 'Chinese' },
+	{ code: 'JA', name: 'Japanese' },
+	{ code: 'KO', name: 'Korean' },
+	{ code: 'AR', name: 'Arabic' },
+	{ code: 'HI', name: 'Hindi' },
+	{ code: 'BN', name: 'Bengali' },
+	{ code: 'TR', name: 'Turkish' },
+	{ code: 'VI', name: 'Vietnamese' },
+	{ code: 'TH', name: 'Thai' },
+	{ code: 'ID', name: 'Indonesian' },
+	{ code: 'PL', name: 'Polish' },
+	{ code: 'UK', name: 'Ukrainian' },
+	{ code: 'RO', name: 'Romanian' },
+	{ code: 'EL', name: 'Greek' },
+	{ code: 'CS', name: 'Czech' },
+	{ code: 'SV', name: 'Swedish' },
+	{ code: 'NO', name: 'Norwegian' },
+	{ code: 'DA', name: 'Danish' },
+	{ code: 'FI', name: 'Finnish' },
+	{ code: 'HU', name: 'Hungarian' },
+	{ code: 'HE', name: 'Hebrew' },
+	{ code: 'FA', name: 'Persian' },
+	{ code: 'UR', name: 'Urdu' },
+	{ code: 'SW', name: 'Swahili' },
+	{ code: 'MS', name: 'Malay' },
+	{ code: 'TL', name: 'Filipino' },
+	{ code: 'TA', name: 'Tamil' },
+	{ code: 'TE', name: 'Telugu' },
+	{ code: 'MR', name: 'Marathi' },
+	{ code: 'GU', name: 'Gujarati' },
+	{ code: 'KN', name: 'Kannada' },
+	{ code: 'PA', name: 'Punjabi' },
+	{ code: 'ML', name: 'Malayalam' },
+	{ code: 'CA', name: 'Catalan' },
+	{ code: 'HR', name: 'Croatian' },
+	{ code: 'SK', name: 'Slovak' },
+	{ code: 'BG', name: 'Bulgarian' },
+	{ code: 'SR', name: 'Serbian' },
+	{ code: 'LT', name: 'Lithuanian' },
+	{ code: 'LV', name: 'Latvian' },
+	{ code: 'ET', name: 'Estonian' },
+	{ code: 'AF', name: 'Afrikaans' }
+];
+
+let selectedCountry = COUNTRIES[0];
+let selectedLanguage = LANGUAGES[0];
+let languageWheelScrollTimer = null;
+const LANGUAGE_WHEEL_ITEM_HEIGHT = 44;
 
 let searchIndex = [];
 let cameraStream = null;
@@ -454,12 +572,235 @@ document.querySelectorAll('.wardrobe-cart-btn').forEach((btn) => {
 document.addEventListener('keydown', (e) => {
 	if (e.key !== 'Escape') return;
 
-	if (cameraPopup.classList.contains('active')) closeCamera();
+	if (locationDropdown?.classList.contains('active')) closeLocationDropdown();
+	else if (languageDropdown?.classList.contains('active')) closeLanguageDropdown();
+	else if (cameraPopup.classList.contains('active')) closeCamera();
 	else if (signInPopup.classList.contains('active')) closeSignIn();
 	else if (registerPopup.classList.contains('active')) closeRegister();
 	else if (searchPopup.classList.contains('active')) closeSearchPopup();
 	else if (cartPopup.classList.contains('active')) closeCart();
 	else if (categoriesPopup?.classList.contains('active')) closeCategories();
+});
+
+function closeHeaderDropdowns(except) {
+	if (except !== 'location') closeLocationDropdown();
+	if (except !== 'language') closeLanguageDropdown();
+}
+
+function closeLocationDropdown() {
+	if (!locationDropdown) return;
+	locationDropdown.classList.remove('active');
+	locationBtn?.setAttribute('aria-expanded', 'false');
+}
+
+function openLocationDropdown() {
+	closeHeaderDropdowns('location');
+	locationDropdown?.classList.add('active');
+	locationBtn?.setAttribute('aria-expanded', 'true');
+}
+
+function toggleLocationDropdown() {
+	if (locationDropdown?.classList.contains('active')) {
+		closeLocationDropdown();
+	} else {
+		openLocationDropdown();
+	}
+}
+
+function closeLanguageDropdown() {
+	if (!languageDropdown) return;
+	languageDropdown.classList.remove('active');
+	languageBtn?.setAttribute('aria-expanded', 'false');
+}
+
+function openLanguageDropdown() {
+	closeHeaderDropdowns('language');
+	languageDropdown?.classList.add('active');
+	languageBtn?.setAttribute('aria-expanded', 'true');
+	scrollLanguageWheelToIndex(LANGUAGES.indexOf(selectedLanguage), false);
+	updateLanguageWheelVisuals();
+}
+
+function toggleLanguageDropdown() {
+	if (languageDropdown?.classList.contains('active')) {
+		closeLanguageDropdown();
+	} else {
+		openLanguageDropdown();
+	}
+}
+
+function getFlagUrl(code) {
+	return 'https://flagcdn.com/24x18/' + code.toLowerCase() + '.png';
+}
+
+function renderFlagMarkup(code, name) {
+	return '<img src="' + getFlagUrl(code) + '" alt="' + name + ' flag" width="24" height="18" loading="lazy" decoding="async">';
+}
+
+function updateLocationUI() {
+	if (!locationFlag || !locationLabel) return;
+	locationFlag.innerHTML = renderFlagMarkup(selectedCountry.code, selectedCountry.name);
+	locationLabel.textContent = selectedCountry.name;
+	locationPanel?.querySelectorAll('.location-option').forEach((btn) => {
+		btn.classList.toggle('selected', btn.dataset.code === selectedCountry.code);
+		btn.setAttribute('aria-selected', btn.dataset.code === selectedCountry.code ? 'true' : 'false');
+	});
+}
+
+function selectCountry(country) {
+	selectedCountry = country;
+	localStorage.setItem('fos-country', country.code);
+	updateLocationUI();
+	closeLocationDropdown();
+}
+
+function updateLanguageUI() {
+	if (languageCodeEl) languageCodeEl.textContent = selectedLanguage.code;
+	languageWheelList?.querySelectorAll('.language-wheel-item').forEach((item) => {
+		item.classList.toggle('selected', item.dataset.code === selectedLanguage.code);
+		item.setAttribute('aria-selected', item.dataset.code === selectedLanguage.code ? 'true' : 'false');
+	});
+}
+
+function selectLanguage(language) {
+	if (selectedLanguage.code === language.code) {
+		closeLanguageDropdown();
+		return;
+	}
+	selectedLanguage = language;
+	localStorage.setItem('fos-language', language.code);
+	updateLanguageUI();
+	closeLanguageDropdown();
+	if (window.FosTranslate) {
+		window.FosTranslate.apply(language.code);
+	}
+}
+
+function getLanguageWheelCenterIndex() {
+	if (!languageWheelList) return 0;
+	const scrollTop = languageWheelList.scrollTop;
+	return Math.round(scrollTop / LANGUAGE_WHEEL_ITEM_HEIGHT);
+}
+
+function scrollLanguageWheelToIndex(index, smooth) {
+	if (!languageWheelList) return;
+	const clamped = Math.max(0, Math.min(index, LANGUAGES.length - 1));
+	languageWheelList.scrollTo({
+		top: clamped * LANGUAGE_WHEEL_ITEM_HEIGHT,
+		behavior: smooth ? 'smooth' : 'auto'
+	});
+}
+
+function updateLanguageWheelVisuals() {
+	if (!languageWheelList) return;
+	const centerIndex = getLanguageWheelCenterIndex();
+	languageWheelList.querySelectorAll('.language-wheel-item').forEach((item, index) => {
+		item.classList.remove('center', 'near');
+		const distance = Math.abs(index - centerIndex);
+		if (distance === 0) item.classList.add('center');
+		else if (distance === 1) item.classList.add('near');
+	});
+}
+
+function finalizeLanguageWheelSelection() {
+	const index = getLanguageWheelCenterIndex();
+	const language = LANGUAGES[index];
+	if (!language || selectedLanguage.code === language.code) return;
+	selectedLanguage = language;
+	localStorage.setItem('fos-language', language.code);
+	updateLanguageUI();
+	if (window.FosTranslate) {
+		window.FosTranslate.apply(language.code);
+	}
+}
+
+function initLocationDropdown() {
+	if (!locationPanel) return;
+
+	locationPanel.innerHTML = COUNTRIES.map((country) => `
+		<button type="button" class="location-option" role="option" data-code="${country.code}" aria-selected="false">
+			<span class="location-option-flag">${renderFlagMarkup(country.code, country.name)}</span>
+			<span>${country.name}</span>
+		</button>
+	`).join('');
+
+	locationPanel.querySelectorAll('.location-option').forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const country = COUNTRIES.find((item) => item.code === btn.dataset.code);
+			if (country) selectCountry(country);
+		});
+	});
+
+	const savedCountry = localStorage.getItem('fos-country');
+	if (savedCountry) {
+		const match = COUNTRIES.find((item) => item.code === savedCountry);
+		if (match) selectedCountry = match;
+	}
+	updateLocationUI();
+}
+
+window.updateLanguageUIFromTranslate = function (fosCode) {
+	const match = LANGUAGES.find((item) => item.code === fosCode);
+	if (!match) return;
+	selectedLanguage = match;
+	updateLanguageUI();
+	scrollLanguageWheelToIndex(LANGUAGES.indexOf(selectedLanguage), false);
+	updateLanguageWheelVisuals();
+};
+
+function initLanguageDropdown() {
+	if (!languageWheelList) return;
+
+	languageWheelList.innerHTML = LANGUAGES.map((language) => `
+		<button type="button" class="language-wheel-item" role="option" data-code="${language.code}" aria-selected="false">
+			<span class="language-wheel-code">${language.code}</span>
+			<span class="language-wheel-name">${language.name}</span>
+		</button>
+	`).join('');
+
+	languageWheelList.querySelectorAll('.language-wheel-item').forEach((item, index) => {
+		item.addEventListener('click', () => {
+			scrollLanguageWheelToIndex(index, true);
+			setTimeout(() => {
+				finalizeLanguageWheelSelection();
+				closeLanguageDropdown();
+			}, 180);
+		});
+	});
+
+	languageWheelList.addEventListener('scroll', () => {
+		updateLanguageWheelVisuals();
+		clearTimeout(languageWheelScrollTimer);
+		languageWheelScrollTimer = setTimeout(finalizeLanguageWheelSelection, 120);
+	}, { passive: true });
+
+	const savedLanguage = localStorage.getItem('fos-language');
+	if (savedLanguage) {
+		const match = LANGUAGES.find((item) => item.code === savedLanguage);
+		if (match) selectedLanguage = match;
+	}
+	updateLanguageUI();
+	scrollLanguageWheelToIndex(LANGUAGES.indexOf(selectedLanguage), false);
+	updateLanguageWheelVisuals();
+}
+
+locationBtn?.addEventListener('click', (e) => {
+	e.stopPropagation();
+	toggleLocationDropdown();
+});
+
+languageBtn?.addEventListener('click', (e) => {
+	e.stopPropagation();
+	toggleLanguageDropdown();
+});
+
+document.addEventListener('pointerdown', (e) => {
+	if (locationDropdown?.classList.contains('active') && !locationDropdown.contains(e.target)) {
+		closeLocationDropdown();
+	}
+	if (languageDropdown?.classList.contains('active') && !languageDropdown.contains(e.target)) {
+		closeLanguageDropdown();
+	}
 });
 
 function closeCategories() {
@@ -547,4 +888,6 @@ function startCountdown() {
 }
 
 searchIndex = buildSearchIndex();
+initLocationDropdown();
+initLanguageDropdown();
 startCountdown();

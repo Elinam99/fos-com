@@ -8,6 +8,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="merger.css">
+	<link rel="stylesheet" href="translate.css">
 	<script src="https://kit.fontawesome.com/b5b26585e9.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -28,11 +29,31 @@
 			</form>
 
 			<div class="header-utils">
-				<button type="button" class="util-link locale-btn util-hide-mobile">
-					<span class="flag">🇬🇭</span>
-					<span>EN/GHS</span>
-					<i class="fa-solid fa-chevron-down"></i>
-				</button>
+				<div class="header-dropdown util-hide-mobile" id="location_dropdown">
+					<button type="button" class="util-link location-btn" id="location_btn" aria-expanded="false" aria-haspopup="listbox" aria-controls="location_panel">
+						<span class="location-flag" id="location_flag" aria-hidden="true">
+							<img src="https://flagcdn.com/24x18/gh.png" alt="Ghana flag" width="24" height="18" loading="eager" decoding="async">
+						</span>
+						<span class="location-label" id="location_label">Ghana</span>
+						<i class="fa-solid fa-chevron-down"></i>
+					</button>
+					<div class="header-dropdown-panel location-panel" id="location_panel" role="listbox" aria-label="Select country"></div>
+				</div>
+				<div class="header-dropdown util-hide-mobile" id="language_dropdown">
+					<button type="button" class="util-link language-btn" id="language_btn" aria-expanded="false" aria-haspopup="listbox" aria-controls="language_panel">
+						<span class="language-code" id="language_code">EN</span>
+						<i class="fa-solid fa-chevron-down"></i>
+					</button>
+					<div class="header-dropdown-panel language-panel" id="language_panel" role="listbox" aria-label="Select language">
+						<p class="dropdown-panel-title">Language</p>
+						<div class="language-wheel">
+							<div class="language-wheel-fade language-wheel-fade--top" aria-hidden="true"></div>
+							<div class="language-wheel-highlight" aria-hidden="true"></div>
+							<div class="language-wheel-list" id="language_wheel_list"></div>
+							<div class="language-wheel-fade language-wheel-fade--bottom" aria-hidden="true"></div>
+						</div>
+					</div>
+				</div>
 				<div class="account-actions">
 					<i class="fa-regular fa-user account-icon"></i>
 					<div class="account-text">
@@ -347,6 +368,9 @@
 		</div>
 	</div>
 
+	<div id="google_translate_element" aria-hidden="true"></div>
+	<script src="translate.js"></script>
+	<script src="https://translate.google.com/translate_element.js?cb=googleTranslateElementInit"></script>
 	<script src="script.js"></script>
 </body>
 </html>
