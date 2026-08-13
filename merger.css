@@ -1856,8 +1856,55 @@ body.dark-mode .wardrobe-price {
 		max-width: 100%;
 	}
 
-	.util-hide-mobile {
+	.header-utils {
+		gap: 0.8rem;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+	}
+
+	.location-btn,
+	.language-btn {
+		padding: 0.4rem 0.8rem;
+		gap: 0.4rem;
+		font-size: 1.1rem;
+	}
+
+	.location-btn .location-label {
+		min-width: 0;
+	}
+
+	.location-btn .fa-chevron-down,
+	.language-btn .fa-chevron-down {
 		display: none;
+	}
+
+	.account-text {
+		display: none;
+	}
+
+	.header-dropdown-panel {
+		position: fixed;
+		top: 7rem;
+		left: 50%;
+		right: auto;
+		transform: translateX(-50%) translateY(-0.6rem);
+		width: min(28rem, calc(100vw - 2.4rem));
+		max-height: calc(100vh - 9rem);
+		overflow: hidden;
+	}
+
+	.header-dropdown.active .header-dropdown-panel {
+		transform: translateX(-50%) translateY(0);
+	}
+
+	.location-panel,
+	.language-panel {
+		width: 100%;
+	}
+
+	.location-wheel,
+	.language-wheel {
+		height: 20rem;
 	}
 
 	.header-nav {

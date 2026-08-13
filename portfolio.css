@@ -158,6 +158,15 @@ body.portfolio-page.dark-mode .portfolio-glow {
 	color: #fff;
 }
 
+.portfolio-header-btn--back {
+	background: var(--text-color);
+}
+
+.portfolio-back-arrow {
+	font-size: 1.6rem;
+	line-height: 1;
+}
+
 .portfolio-theme-btn {
 	width: 4.4rem;
 	height: 4.4rem;
