@@ -8,6 +8,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="merger.css">
+	<link rel="stylesheet" href="site-shared.css">
 	<link rel="stylesheet" href="translate.css">
 	<script src="https://kit.fontawesome.com/b5b26585e9.js" crossorigin="anonymous"></script>
 </head>
@@ -34,10 +35,18 @@
 						<span class="location-flag" id="location_flag" aria-hidden="true">
 							<img src="https://flagcdn.com/24x18/gh.png" alt="Ghana flag" width="24" height="18" loading="eager" decoding="async">
 						</span>
-						<span class="location-label" id="location_label">Ghana</span>
+						<span class="location-label" id="location_label">GHA</span>
 						<i class="fa-solid fa-chevron-down"></i>
 					</button>
-					<div class="header-dropdown-panel location-panel" id="location_panel" role="listbox" aria-label="Select country"></div>
+					<div class="header-dropdown-panel location-panel" id="location_panel" role="listbox" aria-label="Select country">
+						<p class="dropdown-panel-title">Location</p>
+						<div class="location-wheel">
+							<div class="location-wheel-fade location-wheel-fade--top" aria-hidden="true"></div>
+							<div class="location-wheel-highlight" aria-hidden="true"></div>
+							<div class="location-wheel-list" id="location_wheel_list"></div>
+							<div class="location-wheel-fade location-wheel-fade--bottom" aria-hidden="true"></div>
+						</div>
+					</div>
 				</div>
 				<div class="header-dropdown util-hide-mobile" id="language_dropdown">
 					<button type="button" class="util-link language-btn" id="language_btn" aria-expanded="false" aria-haspopup="listbox" aria-controls="language_panel">
@@ -166,7 +175,7 @@
 			</div>
 		</section>
 
-		<section class="gallery-section">
+		<section class="gallery-section" id="wardrobe">
 			<h2>Our wardrobe</h2>
 			<div class="gallery-grid wardrobe-grid">
 				<article class="wardrobe-item wardrobe-item--puma" data-search-item="Puma Clyde Court shoes GH₵150">
@@ -193,6 +202,20 @@
 			</div>
 		</section>
 	</main>
+
+	<footer class="site-footer">
+		<div class="site-footer-inner">
+			<a href="Fos.com.gh.html" class="site-footer-brand">Fos.com</a>
+			<nav class="site-footer-links">
+				<a href="home.html">Store</a>
+				<a href="About.html">About</a>
+				<a href="Contact.html">Contact</a>
+				<a href="Portfolio.html">Portfolio</a>
+				<a href="founder.html">Founders</a>
+			</nav>
+			<p class="site-footer-copy">&copy; 2024 Fos.com — Ghana's fashion marketplace.</p>
+		</div>
+	</footer>
 
 	<aside class="float-sidebar">
 		<button type="button" class="sidebar-btn" id="sidebar_cart" aria-label="Cart">

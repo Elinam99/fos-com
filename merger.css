@@ -294,31 +294,114 @@ body.dark-mode .search-submit {
 }
 
 .location-panel {
-	max-height: 32rem;
-	overflow-y: auto;
-	padding: 0.4rem 0;
+	width: 26rem;
+	padding-bottom: 0.8rem;
 }
 
-.location-option {
+.location-wheel {
+	position: relative;
+	height: 22rem;
+	margin: 0 0.4rem;
+}
+
+.location-wheel-list {
+	height: 100%;
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: none;
+	padding: 8.8rem 0;
+}
+
+.location-wheel-list::-webkit-scrollbar {
+	display: none;
+}
+
+.location-wheel-item {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
-	width: 100%;
-	padding: 1rem 1.4rem;
+	height: 4.4rem;
+	padding: 0 1.6rem;
+	scroll-snap-align: center;
 	font-size: 1.3rem;
-	color: var(--text-color);
-	text-align: left;
+	color: var(--text-muted);
 	text-transform: none;
-	transition: background 0.15s ease;
+	transition: color 0.15s ease, font-size 0.15s ease, opacity 0.15s ease;
+	opacity: 0.55;
+	cursor: pointer;
+	width: 100%;
+	border: none;
+	background: transparent;
+	font-family: inherit;
+	text-align: left;
 }
 
-.location-option:hover {
-	background: var(--search-bg);
+.location-wheel-item.near {
+	opacity: 0.85;
+	font-size: 1.4rem;
 }
 
-.location-option.selected {
-	color: var(--accent);
+.location-wheel-item.center {
+	color: var(--text-color);
+	font-size: 1.5rem;
 	font-weight: 600;
+	opacity: 1;
+}
+
+.location-wheel-item:hover {
+	opacity: 1;
+}
+
+.location-wheel-name {
+	flex: 1;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.location-wheel-flag img {
+	width: 2.4rem;
+	height: auto;
+	border-radius: 0.3rem;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+	object-fit: cover;
+	display: block;
+}
+
+.location-wheel-highlight {
+	position: absolute;
+	top: 50%;
+	left: 0.6rem;
+	right: 0.6rem;
+	height: 4.4rem;
+	transform: translateY(-50%);
+	border-top: 1px solid var(--border);
+	border-bottom: 1px solid var(--border);
+	border-radius: 0.6rem;
+	pointer-events: none;
+	background: rgba(255, 71, 71, 0.07);
+	z-index: 1;
+}
+
+.location-wheel-fade {
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 7rem;
+	pointer-events: none;
+	z-index: 2;
+}
+
+.location-wheel-fade--top {
+	top: 0;
+	background: linear-gradient(to bottom, var(--popup-bg) 20%, transparent);
+}
+
+.location-wheel-fade--bottom {
+	bottom: 0;
+	background: linear-gradient(to top, var(--popup-bg) 20%, transparent);
 }
 
 .location-option-flag,

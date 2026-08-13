@@ -5,13 +5,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>About - Fos.com</title>
 	<link rel="stylesheet" href="p.css">
+	<link rel="stylesheet" href="site-shared.css">
 	<link rel="stylesheet" href="translate.css">
 </head>
 <body class="founder-page">
 	<div class="founder-wrap">
 		<nav class="founder-nav">
-			<a href="Fos.com.gh.html" class="founder-back">&larr; Back to landing</a>
-			<a href="home.html" class="founder-home">Visit store</a>
+			<a href="Fos.com.gh.html" class="founder-back">&larr; Landing</a>
+			<div class="founder-nav-links">
+				<a href="home.html">Store</a>
+				<a href="About.html" class="active">About</a>
+				<a href="Contact.html">Contact</a>
+				<a href="Portfolio.html">Portfolio</a>
+				<a href="founder.html">Founders</a>
+			</div>
+			<button type="button" class="site-theme-btn" id="site_theme_toggle" aria-label="Toggle dark mode">☾</button>
 		</nav>
 
 		<header class="founder-header">
@@ -60,18 +68,36 @@
 
 		<section class="founder-section">
 			<h2>What we offer</h2>
-			<p>Curated product collections and daily deals</p>
-			<p>Secure checkout and order forms</p>
-			<p>Free shipping on selected Choice items</p>
-			<p>A growing community of fashion sellers and buyers</p>
+			<ul class="founder-offer-list">
+				<li>Curated product collections and daily deals</li>
+				<li>Secure checkout and order forms</li>
+				<li>Free shipping on selected Choice items</li>
+				<li>A growing community of fashion sellers and buyers</li>
+			</ul>
 			<div class="founder-actions">
 				<a href="home.html" class="founder-btn">Start shopping</a>
+				<a href="founder.html" class="founder-btn founder-btn--outline">Meet the founders</a>
 				<a href="Contact.html" class="founder-btn founder-btn--outline">Contact us</a>
 			</div>
 		</section>
 	</div>
 
+	<footer class="site-footer">
+		<div class="site-footer-inner">
+			<a href="Fos.com.gh.html" class="site-footer-brand">Fos.com</a>
+			<nav class="site-footer-links">
+				<a href="home.html">Store</a>
+				<a href="About.html">About</a>
+				<a href="Contact.html">Contact</a>
+				<a href="Portfolio.html">Portfolio</a>
+				<a href="founder.html">Founders</a>
+			</nav>
+			<p class="site-footer-copy">&copy; 2024 Fos.com — Ghana's fashion marketplace.</p>
+		</div>
+	</footer>
+
 	<div id="google_translate_element" aria-hidden="true"></div>
+	<script src="site.js"></script>
 	<script src="translate.js"></script>
 	<script src="https://translate.google.com/translate_element.js?cb=googleTranslateElementInit"></script>
 </body>

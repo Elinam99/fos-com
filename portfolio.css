@@ -105,7 +105,8 @@ body.portfolio-page.dark-mode .portfolio-glow {
 
 .portfolio-nav {
 	display: flex;
-	gap: 3.2rem;
+	flex-wrap: wrap;
+	gap: 2rem;
 }
 
 .portfolio-nav a {
@@ -420,6 +421,9 @@ body.portfolio-page.dark-mode .skill-tag--dark {
 	border: 3px solid transparent;
 	transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 	box-shadow: var(--shadow);
+	text-decoration: none;
+	color: inherit;
+	display: block;
 }
 
 .work-card:hover {

@@ -45,6 +45,7 @@ const cameraStatus = document.querySelector('#camera_status');
 const locationDropdown = document.querySelector('#location_dropdown');
 const locationBtn = document.querySelector('#location_btn');
 const locationPanel = document.querySelector('#location_panel');
+const locationWheelList = document.querySelector('#location_wheel_list');
 const locationFlag = document.querySelector('#location_flag');
 const locationLabel = document.querySelector('#location_label');
 const languageDropdown = document.querySelector('#language_dropdown');
@@ -54,53 +55,53 @@ const languageCodeEl = document.querySelector('#language_code');
 const languageWheelList = document.querySelector('#language_wheel_list');
 
 const COUNTRIES = [
-	{ code: 'GH', name: 'Ghana', flag: '🇬🇭' },
-	{ code: 'US', name: 'United States', flag: '🇺🇸' },
-	{ code: 'GB', name: 'United Kingdom', flag: '🇬🇧' },
-	{ code: 'CA', name: 'Canada', flag: '🇨🇦' },
-	{ code: 'NG', name: 'Nigeria', flag: '🇳🇬' },
-	{ code: 'ZA', name: 'South Africa', flag: '🇿🇦' },
-	{ code: 'KE', name: 'Kenya', flag: '🇰🇪' },
-	{ code: 'IN', name: 'India', flag: '🇮🇳' },
-	{ code: 'AU', name: 'Australia', flag: '🇦🇺' },
-	{ code: 'DE', name: 'Germany', flag: '🇩🇪' },
-	{ code: 'FR', name: 'France', flag: '🇫🇷' },
-	{ code: 'ES', name: 'Spain', flag: '🇪🇸' },
-	{ code: 'IT', name: 'Italy', flag: '🇮🇹' },
-	{ code: 'BR', name: 'Brazil', flag: '🇧🇷' },
-	{ code: 'MX', name: 'Mexico', flag: '🇲🇽' },
-	{ code: 'JP', name: 'Japan', flag: '🇯🇵' },
-	{ code: 'CN', name: 'China', flag: '🇨🇳' },
-	{ code: 'KR', name: 'South Korea', flag: '🇰🇷' },
-	{ code: 'AE', name: 'United Arab Emirates', flag: '🇦🇪' },
-	{ code: 'SA', name: 'Saudi Arabia', flag: '🇸🇦' },
-	{ code: 'NL', name: 'Netherlands', flag: '🇳🇱' },
-	{ code: 'BE', name: 'Belgium', flag: '🇧🇪' },
-	{ code: 'CH', name: 'Switzerland', flag: '🇨🇭' },
-	{ code: 'SE', name: 'Sweden', flag: '🇸🇪' },
-	{ code: 'NO', name: 'Norway', flag: '🇳🇴' },
-	{ code: 'DK', name: 'Denmark', flag: '🇩🇰' },
-	{ code: 'PL', name: 'Poland', flag: '🇵🇱' },
-	{ code: 'TR', name: 'Turkey', flag: '🇹🇷' },
-	{ code: 'EG', name: 'Egypt', flag: '🇪🇬' },
-	{ code: 'MA', name: 'Morocco', flag: '🇲🇦' },
-	{ code: 'SG', name: 'Singapore', flag: '🇸🇬' },
-	{ code: 'MY', name: 'Malaysia', flag: '🇲🇾' },
-	{ code: 'ID', name: 'Indonesia', flag: '🇮🇩' },
-	{ code: 'PH', name: 'Philippines', flag: '🇵🇭' },
-	{ code: 'TH', name: 'Thailand', flag: '🇹🇭' },
-	{ code: 'VN', name: 'Vietnam', flag: '🇻🇳' },
-	{ code: 'AR', name: 'Argentina', flag: '🇦🇷' },
-	{ code: 'CO', name: 'Colombia', flag: '🇨🇴' },
-	{ code: 'CL', name: 'Chile', flag: '🇨🇱' },
-	{ code: 'PT', name: 'Portugal', flag: '🇵🇹' },
-	{ code: 'IE', name: 'Ireland', flag: '🇮🇪' },
-	{ code: 'NZ', name: 'New Zealand', flag: '🇳🇿' },
-	{ code: 'IL', name: 'Israel', flag: '🇮🇱' },
-	{ code: 'RU', name: 'Russia', flag: '🇷🇺' },
-	{ code: 'UA', name: 'Ukraine', flag: '🇺🇦' },
-	{ code: 'PK', name: 'Pakistan', flag: '🇵🇰' },
-	{ code: 'BD', name: 'Bangladesh', flag: '🇧🇩' }
+	{ code: 'GH', abbr: 'GHA', name: 'Ghana', flag: '🇬🇭' },
+	{ code: 'US', abbr: 'USA', name: 'United States', flag: '🇺🇸' },
+	{ code: 'GB', abbr: 'GBR', name: 'United Kingdom', flag: '🇬🇧' },
+	{ code: 'CA', abbr: 'CAN', name: 'Canada', flag: '🇨🇦' },
+	{ code: 'NG', abbr: 'NGA', name: 'Nigeria', flag: '🇳🇬' },
+	{ code: 'ZA', abbr: 'ZAF', name: 'South Africa', flag: '🇿🇦' },
+	{ code: 'KE', abbr: 'KEN', name: 'Kenya', flag: '🇰🇪' },
+	{ code: 'IN', abbr: 'IND', name: 'India', flag: '🇮🇳' },
+	{ code: 'AU', abbr: 'AUS', name: 'Australia', flag: '🇦🇺' },
+	{ code: 'DE', abbr: 'DEU', name: 'Germany', flag: '🇩🇪' },
+	{ code: 'FR', abbr: 'FRA', name: 'France', flag: '🇫🇷' },
+	{ code: 'ES', abbr: 'ESP', name: 'Spain', flag: '🇪🇸' },
+	{ code: 'IT', abbr: 'ITA', name: 'Italy', flag: '🇮🇹' },
+	{ code: 'BR', abbr: 'BRA', name: 'Brazil', flag: '🇧🇷' },
+	{ code: 'MX', abbr: 'MEX', name: 'Mexico', flag: '🇲🇽' },
+	{ code: 'JP', abbr: 'JPN', name: 'Japan', flag: '🇯🇵' },
+	{ code: 'CN', abbr: 'CHN', name: 'China', flag: '🇨🇳' },
+	{ code: 'KR', abbr: 'KOR', name: 'South Korea', flag: '🇰🇷' },
+	{ code: 'AE', abbr: 'ARE', name: 'United Arab Emirates', flag: '🇦🇪' },
+	{ code: 'SA', abbr: 'SAU', name: 'Saudi Arabia', flag: '🇸🇦' },
+	{ code: 'NL', abbr: 'NLD', name: 'Netherlands', flag: '🇳🇱' },
+	{ code: 'BE', abbr: 'BEL', name: 'Belgium', flag: '🇧🇪' },
+	{ code: 'CH', abbr: 'CHE', name: 'Switzerland', flag: '🇨🇭' },
+	{ code: 'SE', abbr: 'SWE', name: 'Sweden', flag: '🇸🇪' },
+	{ code: 'NO', abbr: 'NOR', name: 'Norway', flag: '🇳🇴' },
+	{ code: 'DK', abbr: 'DNK', name: 'Denmark', flag: '🇩🇰' },
+	{ code: 'PL', abbr: 'POL', name: 'Poland', flag: '🇵🇱' },
+	{ code: 'TR', abbr: 'TUR', name: 'Turkey', flag: '🇹🇷' },
+	{ code: 'EG', abbr: 'EGY', name: 'Egypt', flag: '🇪🇬' },
+	{ code: 'MA', abbr: 'MAR', name: 'Morocco', flag: '🇲🇦' },
+	{ code: 'SG', abbr: 'SGP', name: 'Singapore', flag: '🇸🇬' },
+	{ code: 'MY', abbr: 'MYS', name: 'Malaysia', flag: '🇲🇾' },
+	{ code: 'ID', abbr: 'IDN', name: 'Indonesia', flag: '🇮🇩' },
+	{ code: 'PH', abbr: 'PHL', name: 'Philippines', flag: '🇵🇭' },
+	{ code: 'TH', abbr: 'THA', name: 'Thailand', flag: '🇹🇭' },
+	{ code: 'VN', abbr: 'VNM', name: 'Vietnam', flag: '🇻🇳' },
+	{ code: 'AR', abbr: 'ARG', name: 'Argentina', flag: '🇦🇷' },
+	{ code: 'CO', abbr: 'COL', name: 'Colombia', flag: '🇨🇴' },
+	{ code: 'CL', abbr: 'CHL', name: 'Chile', flag: '🇨🇱' },
+	{ code: 'PT', abbr: 'PRT', name: 'Portugal', flag: '🇵🇹' },
+	{ code: 'IE', abbr: 'IRL', name: 'Ireland', flag: '🇮🇪' },
+	{ code: 'NZ', abbr: 'NZL', name: 'New Zealand', flag: '🇳🇿' },
+	{ code: 'IL', abbr: 'ISR', name: 'Israel', flag: '🇮🇱' },
+	{ code: 'RU', abbr: 'RUS', name: 'Russia', flag: '🇷🇺' },
+	{ code: 'UA', abbr: 'UKR', name: 'Ukraine', flag: '🇺🇦' },
+	{ code: 'PK', abbr: 'PAK', name: 'Pakistan', flag: '🇵🇰' },
+	{ code: 'BD', abbr: 'BGD', name: 'Bangladesh', flag: '🇧🇩' }
 ];
 
 const LANGUAGES = [
@@ -159,7 +160,8 @@ const LANGUAGES = [
 let selectedCountry = COUNTRIES[0];
 let selectedLanguage = LANGUAGES[0];
 let languageWheelScrollTimer = null;
-const LANGUAGE_WHEEL_ITEM_HEIGHT = 44;
+let locationWheelScrollTimer = null;
+const WHEEL_ITEM_HEIGHT = 44;
 
 let searchIndex = [];
 let cameraStream = null;
@@ -597,6 +599,8 @@ function openLocationDropdown() {
 	closeHeaderDropdowns('location');
 	locationDropdown?.classList.add('active');
 	locationBtn?.setAttribute('aria-expanded', 'true');
+	scrollLocationWheelToIndex(COUNTRIES.indexOf(selectedCountry), false);
+	updateLocationWheelVisuals();
 }
 
 function toggleLocationDropdown() {
@@ -640,11 +644,45 @@ function renderFlagMarkup(code, name) {
 function updateLocationUI() {
 	if (!locationFlag || !locationLabel) return;
 	locationFlag.innerHTML = renderFlagMarkup(selectedCountry.code, selectedCountry.name);
-	locationLabel.textContent = selectedCountry.name;
-	locationPanel?.querySelectorAll('.location-option').forEach((btn) => {
-		btn.classList.toggle('selected', btn.dataset.code === selectedCountry.code);
-		btn.setAttribute('aria-selected', btn.dataset.code === selectedCountry.code ? 'true' : 'false');
+	locationLabel.textContent = selectedCountry.abbr;
+	locationWheelList?.querySelectorAll('.location-wheel-item').forEach((item) => {
+		item.classList.toggle('selected', item.dataset.code === selectedCountry.code);
+		item.setAttribute('aria-selected', item.dataset.code === selectedCountry.code ? 'true' : 'false');
 	});
+}
+
+function getLocationWheelCenterIndex() {
+	if (!locationWheelList) return 0;
+	return Math.round(locationWheelList.scrollTop / WHEEL_ITEM_HEIGHT);
+}
+
+function scrollLocationWheelToIndex(index, smooth) {
+	if (!locationWheelList) return;
+	const clamped = Math.max(0, Math.min(index, COUNTRIES.length - 1));
+	locationWheelList.scrollTo({
+		top: clamped * WHEEL_ITEM_HEIGHT,
+		behavior: smooth ? 'smooth' : 'auto'
+	});
+}
+
+function updateLocationWheelVisuals() {
+	if (!locationWheelList) return;
+	const centerIndex = getLocationWheelCenterIndex();
+	locationWheelList.querySelectorAll('.location-wheel-item').forEach((item, index) => {
+		item.classList.remove('center', 'near');
+		const distance = Math.abs(index - centerIndex);
+		if (distance === 0) item.classList.add('center');
+		else if (distance === 1) item.classList.add('near');
+	});
+}
+
+function finalizeLocationWheelSelection() {
+	const index = getLocationWheelCenterIndex();
+	const country = COUNTRIES[index];
+	if (!country) return;
+	selectedCountry = country;
+	localStorage.setItem('fos-country', country.code);
+	updateLocationUI();
 }
 
 function selectCountry(country) {
@@ -679,14 +717,14 @@ function selectLanguage(language) {
 function getLanguageWheelCenterIndex() {
 	if (!languageWheelList) return 0;
 	const scrollTop = languageWheelList.scrollTop;
-	return Math.round(scrollTop / LANGUAGE_WHEEL_ITEM_HEIGHT);
+	return Math.round(languageWheelList.scrollTop / WHEEL_ITEM_HEIGHT);
 }
 
 function scrollLanguageWheelToIndex(index, smooth) {
 	if (!languageWheelList) return;
 	const clamped = Math.max(0, Math.min(index, LANGUAGES.length - 1));
 	languageWheelList.scrollTo({
-		top: clamped * LANGUAGE_WHEEL_ITEM_HEIGHT,
+		top: clamped * WHEEL_ITEM_HEIGHT,
 		behavior: smooth ? 'smooth' : 'auto'
 	});
 }
@@ -715,21 +753,30 @@ function finalizeLanguageWheelSelection() {
 }
 
 function initLocationDropdown() {
-	if (!locationPanel) return;
+	if (!locationWheelList) return;
 
-	locationPanel.innerHTML = COUNTRIES.map((country) => `
-		<button type="button" class="location-option" role="option" data-code="${country.code}" aria-selected="false">
-			<span class="location-option-flag">${renderFlagMarkup(country.code, country.name)}</span>
-			<span>${country.name}</span>
+	locationWheelList.innerHTML = COUNTRIES.map((country) => `
+		<button type="button" class="location-wheel-item" role="option" data-code="${country.code}" aria-label="${country.name}" aria-selected="false">
+			<span class="location-wheel-flag">${renderFlagMarkup(country.code, country.name)}</span>
+			<span class="location-wheel-name">${country.abbr}</span>
 		</button>
 	`).join('');
 
-	locationPanel.querySelectorAll('.location-option').forEach((btn) => {
-		btn.addEventListener('click', () => {
-			const country = COUNTRIES.find((item) => item.code === btn.dataset.code);
-			if (country) selectCountry(country);
+	locationWheelList.querySelectorAll('.location-wheel-item').forEach((item, index) => {
+		item.addEventListener('click', () => {
+			scrollLocationWheelToIndex(index, true);
+			setTimeout(() => {
+				finalizeLocationWheelSelection();
+				closeLocationDropdown();
+			}, 180);
 		});
 	});
+
+	locationWheelList.addEventListener('scroll', () => {
+		updateLocationWheelVisuals();
+		clearTimeout(locationWheelScrollTimer);
+		locationWheelScrollTimer = setTimeout(finalizeLocationWheelSelection, 120);
+	}, { passive: true });
 
 	const savedCountry = localStorage.getItem('fos-country');
 	if (savedCountry) {
@@ -737,6 +784,8 @@ function initLocationDropdown() {
 		if (match) selectedCountry = match;
 	}
 	updateLocationUI();
+	scrollLocationWheelToIndex(COUNTRIES.indexOf(selectedCountry), false);
+	updateLocationWheelVisuals();
 }
 
 window.updateLanguageUIFromTranslate = function (fosCode) {
